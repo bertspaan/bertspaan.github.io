@@ -11,7 +11,7 @@ a:link {
 	color: #91a7ff;
 }
 
-#text {
+span {
 	font-size: 11px;
 	font-family: "Lucida Grande", Verdana, Arial, sans-serif;
 	color: #e6e6d6;
@@ -36,5 +36,11 @@ div#centered p img {
 	display: block;
 	margin-left: auto;
   margin-right: auto;
+}
+
+.img404 {
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg); /* IE 9 */
+  -webkit-transform:rotate(180deg); /* Safari and Chrome */
 }
 
