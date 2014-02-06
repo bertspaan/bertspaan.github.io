@@ -16,5 +16,27 @@ article {
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
+  
+
+}
+
+article span {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+     
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+    
+}
+
+article span:hover{
+  -webkit-transform: rotate(180deg); 
+  -moz-transform: rotate(180deg); 
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg); 
 }
 
