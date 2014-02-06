@@ -1,0 +1,51 @@
+
+
+body {
+  width: 600px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+h1 {
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+
+h2 {
+  width: 100px;
+  float: left;
+  font-family: 'Roboto Slab', serif;
+}
+
+h2, h3, h4, h5 {
+  font-size: 16px;
+}
+
+h5 {
+  float: right;
+}
+
+dt:after {
+  content: ":";
+}
+  
+section {
+  clear: both;
+}
+
+section div {
+/*  left: 120px;
+  position: relative;*/
+}
+
+
+dt {
+  clear: both;
+  float: left;
+  width: 150px;
+}
+
+dd {
+  float: left; 
+}
