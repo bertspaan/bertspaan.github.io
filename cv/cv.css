@@ -1,33 +1,60 @@
 
 
 body {
-  width: 600px;
+  width: 900px;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
+  line-height: 1.7em;
 }
 
+strong {
+  font-weight: 600;
+}
 
 h1 {
   border-bottom-style: solid;
   border-width: 1px;
+  padding-bottom: 15px;
 }
 
 h2 {
   width: 100px;
   float: left;
   font-family: 'Roboto Slab', serif;
+  font-variant: small-caps;
 }
 
 h2, h3, h4, h5 {
   font-size: 16px;
 }
 
+h4 {
+  font-style: italic;
+  font-weight: 300;
+  margin-top: 0;
+}
+
+h3 strong {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
 h5 {
   float: right;
+  display: inline;
+  font-weight: 600;
 }
 
 dt:after {
   content: ":";
+}
+
+a, a:visited {
+  color: black;
 }
   
 section {
@@ -35,10 +62,12 @@ section {
 }
 
 section div {
+  float: right;
+  width: 700px;
 /*  left: 120px;
+  width: 500px;
   position: relative;*/
 }
-
 
 dt {
   clear: both;
@@ -48,4 +77,9 @@ dt {
 
 dd {
   float: left; 
+}
+
+ul {
+  padding-left: 19px;
+  list-style-type: square;
 }
