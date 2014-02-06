@@ -24,13 +24,34 @@ h2 {
   font-variant: small-caps;
 }
 
-h2, h3, h4, h5 {
+h2, h4, h5, h6 {
   font-size: 16px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h2, h3, dl {
+  margin-top: 35px;
+}
+
+section:first-child h2, section:first-child  dl {
+  margin-top: 5px;
+}
+
+section:last-child div:last-child {
+  padding-bottom: 100px;
 }
 
 h4 {
   font-style: italic;
   font-weight: 300;
+  width: 400px;
+  float: left;
+}
+
+h4, h5 {
   margin-top: 0;
 }
 
@@ -47,10 +68,21 @@ h5 {
   float: right;
   display: inline;
   font-weight: 600;
+  width: 300px;
+  text-align: right;
+}
+
+h6 {
+  margin: 0;
+  font-weight: 400;
 }
 
 dt:after {
   content: ":";
+}
+
+p {
+  margin: 0 15px;
 }
 
 a, a:visited {
@@ -80,6 +112,7 @@ dd {
 }
 
 ul {
+  clear: both;
   padding-left: 19px;
   list-style-type: square;
 }
