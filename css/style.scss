@@ -4,10 +4,10 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 $background-color: #0B0602;
-$font-color: #fff;
+$font-color: #f7f4f2;
 
-$inverted-background-color: #fff;
-$inverted-font-color: #0B0602;
+$inverted-background-color: $font-color;
+$inverted-font-color: $background-color;
 
 $page-margin: 35px;
 
