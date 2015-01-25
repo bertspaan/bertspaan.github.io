@@ -8,6 +8,10 @@ exclude: ['CNAME', 'README.md']
 
 defaults:
   - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
       path: "projects"
     values:
       layout: "project"
