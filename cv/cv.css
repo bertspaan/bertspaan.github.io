@@ -17,6 +17,10 @@ h1 {
   padding-bottom: 15px;
 }
 
+h1 a {
+  text-decoration: none;
+}
+
 h2 {
   width: 100px;
   float: left;
@@ -88,7 +92,7 @@ p {
 a, a:visited {
   color: black;
 }
-  
+
 section {
   clear: both;
 }
@@ -108,7 +112,7 @@ dt {
 }
 
 dd {
-  float: left; 
+  float: left;
 }
 
 ul {
