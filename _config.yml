@@ -2,6 +2,10 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+  things:
+    output: true
+    permalink: /things/:name/
+
 
 baseurl:
 exclude: ['CNAME', 'README.md']
