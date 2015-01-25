@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% if page.title %}
+    <title>{{ page.title }} | bertspaan.nl</title>
+    {% else %}
+    <title>bertspaan.nl</title>
+    {% endif %}
+    <meta charset="utf-8">
+    <meta name="viewport"content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/normalize.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/skeleton.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/style.css" media="all" />
+  </head>
+  <body>
+    <nav>
+      <h1><a href="{{ site.baseurl }}/">Bert Spaan</a></h1>
+      {% assign url = page.url | replace_first:'/','' | split:"/" | first %}
+      {% if url == 'index.html' %}
+        :
+        <ul>
+          {% for item in site.data.menu %}
+            <li><a href="{{ site.baseurl }}/{{ item[0] }}">{{ item[1] }}</a>,</li>
+          {% endfor %}
+          <li><a href="https://twitter.com/bertspaan"><img src="{{ site.baseurl }}/images/twitter.svg" /></a>,</li>
+          <li><a href="https://github.com/bertspaan"><img src="{{ site.baseurl }}/images/octocat.svg" /></a></li>
+        </ul>
+      {% elsif url == '404.html' %}
+        :
+        <ul>
+          <li>404 - page not found</li>
+        </ul>
+      {% else %}
+        /
+        <ul>
+          <li><a href="{{ site.baseurl }}/{{ url }}">{{ site.data.menu[url] }}</a></li>
+          {% if page.collection %}
+          <li>/ {{ page.title }}</li>
+          {% endif %}
+        </ul>
+      {% endif %}
+    </nav>
