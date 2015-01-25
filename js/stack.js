@@ -7,11 +7,8 @@ layout:
   d3.select("body").classed("invert-colors", true);
 {% endif %}
 
-var backgroundImages = [];
-{% for url in page.background-images %}
-backgroundImages.push("{{ url }}");
-{% endfor %}
-
+// backgroundImages is array containing Jekyll's
+// front matter, initialized in collection-item layout.
 var section = d3.selectAll("#sections section");
 section.append("div")
     .attr("class", "section-background")

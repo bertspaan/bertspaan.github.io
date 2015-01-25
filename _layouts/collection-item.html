@@ -5,6 +5,12 @@
   {{content}}
 </div>
 <!-- tags, role, links -->
+<script>
+  backgroundImages = [];
+  {% for url in page.background-images %}
+  backgroundImages.push("{{ url }}");
+  {% endfor %}
+</script>
 <script src="{{ site.baseurl }}/js/d3.v3.min.js"></script>
 <script src="{{ site.baseurl }}/js/stack.js"></script>
 {% include footer.html %}
