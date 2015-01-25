@@ -9,6 +9,10 @@ $font-color: #fff;
 $inverted-background-color: #fff;
 $inverted-font-color: #0B0602;
 
+$page-margin: 35px;
+
+$collection-item-padding: 10px;
+
 /* Fonts
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -117,6 +121,30 @@ body.invert-colors {
   background: $inverted-background-color;
 }
 
+.contain {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.clearfix {
+  display: block;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Edmondsans';
 }
@@ -125,8 +153,9 @@ nav a {
   text-decoration: none;
 }
 
-a:focus {
-  user-select: none;
+a:active, a:focus {
+  outline-style: none;
+  -moz-outline-style:none;
 }
 
 a,
@@ -147,13 +176,19 @@ nav {
   border-bottom-width: 2px;
   text-shadow: 3px 3px $background-color;
 
-  margin: 35px 35px 0;
+  margin: $page-margin $page-margin 0;
+
+  position: relative;
+  z-index: 100;
 }
 
-nav h1 {
+nav, nav h1, nav li {
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 0;
+}
+
+nav h1 {
   display: inline;
   //line-height: 30px;
 }
@@ -170,6 +205,12 @@ nav img {
   height: 18px;
 }
 
+.divider {
+  display: inline-block;
+  position: relative;
+  width: 0.4em;
+}
+
 body.invert-colors nav {
   border-bottom-color: $inverted-font-color;
   text-shadow: 3px 3px $inverted-background-color;
@@ -178,7 +219,7 @@ body.invert-colors nav {
 /* Horizontal and vertical centered image
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-div#centered {
+div.center-of-page {
   left: 0;
 	// TODO: add js to change 100px on window.resize
   height: calc(100% - 100px);
@@ -188,12 +229,12 @@ div#centered {
   z-index: -1;
 }
 
-div#centered p {
+div.center-of-page p {
 	display: table-cell;
   vertical-align: middle;
 }
 
-div#centered p img {
+div.center-of-page p img {
 	display: block;
 	margin-left: auto;
   margin-right: auto;
@@ -208,5 +249,128 @@ div#centered p img {
 /* Collections (projects, things)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-/* Collection item (full screen image + text)
+nav.fixed {
+  position: fixed;
+  width: calc(100% - #{$page-margin * 2});
+}
+
+.collection {
+  max-width: 1800px;
+  margin: 0 ($page-margin - $collection-item-padding);
+}
+
+.collection-item {
+  padding: $collection-item-padding;
+  float: left;
+  width: 25.0000%;
+}
+
+.collection-item, .collection-item:after, .collection-item:before {
+  box-sizing: border-box;
+}
+
+.collection-item-overlay {
+  padding: $collection-item-padding;
+}
+
+.collection-item-overlay h2 span,
+.collection-item-overlay h3 span {
+  background-color: $background-color;
+}
+
+.pin-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.collection-item-image {
+  height: 0;
+  padding-bottom: 100%;
+  background-size: cover;
+  background-position: 50%;
+}
+
+@media only screen and (max-width:640px) {
+  .collection-item {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width:1200px) {
+  .collection-item {
+    width: 33.3333%;
+  }
+}
+
+@media only screen and (max-width:900px) {
+  .collection-item {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width:640px) {
+  .collection-item {
+    width: 100%;
+  }
+
+  .collection-item-image {
+    padding-bottom: 50%;
+  }
+}
+
+.collection-item h2 span,
+.collection-item h3 span {
+  padding: 10px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.collection-item h2 {
+  margin-top: 7px;
+  line-height: inherit;
+  margin-bottom: 0;
+}
+
+.collection-item h3 {
+  margin-top: 10px;
+}
+
+.collection-item h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
+
+.collection-item h3 {
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+/* Single collection item (full screen image + text)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#sections section {
+  margin: $page-margin;
+  width: 80%;
+  max-width: 700px;
+  z-index: 0;
+  position: fixed;
+}
+
+#sections section span {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.section-background {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -17,5 +17,8 @@ defaults:
   - scope:
       path: "projects"
     values:
-      layout: "project"
-
+      layout: "collection-item"
+  - scope:
+      path: "things"
+    values:
+      layout: "collection-item"

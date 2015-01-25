@@ -12,11 +12,7 @@ var backgroundImages = [];
 backgroundImages.push("{{ url }}");
 {% endfor %}
 
-
-// TODO: move to CSS:
-//d3.selectAll("h1").style("position", "fixed").style("width", "calc(100% - 70px)");
-
-var section = d3.selectAll("section");
+var section = d3.selectAll("#sections section");
 section.append("div")
     .attr("class", "section-background")
     .style("background-image", function(d, i) {
@@ -48,7 +44,7 @@ d3.select(window)
     .on("keydown", keydown);
 
 function resize() {
-  var heading = d3.select("#main-heading").node();
+  var heading = d3.select("nav").node();
   var top = heading.offsetTop + heading.clientHeight;
   d3.selectAll("section").style("top", top + "px");
 }
