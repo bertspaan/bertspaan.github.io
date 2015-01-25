@@ -1,0 +1,212 @@
+---
+---
+/* Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$background-color: #0B0602;
+$font-color: #fff;
+
+$inverted-background-color: #fff;
+$inverted-font-color: #0B0602;
+
+/* Fonts
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@font-face {
+  font-family: 'Edmondsans';
+  font-style: normal;
+  font-weight: normal;
+  src: url('{{ site.baseurl }}/fonts/Edmondsans-Regular.otf')
+}
+
+@font-face {
+  font-family: 'Edmondsans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('{{ site.baseurl }}/fonts/Edmondsans-Medium.otf')
+}
+
+@font-face {
+  font-family: 'Edmondsans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('{{ site.baseurl }}/fonts/Edmondsans-Bold.otf')
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-LightItalic.ttf");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Italic.ttf");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Semibold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-SemiboldItalic.ttf");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-BoldItalic.ttf");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-ExtraBoldItalic.ttf");
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Base styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body {
+  color: $font-color;
+  background: $background-color;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+body.invert-colors {
+  color: $inverted-font-color;
+  background: $inverted-background-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Edmondsans';
+}
+
+nav a {
+  text-decoration: none;
+}
+
+a:focus {
+  user-select: none;
+}
+
+a,
+a:hover,
+a:visited {
+  color: $font-color;
+}
+
+body.invert-colors a,
+body.invert-colors a:hover,
+body.invert-colors a:visited {
+  color: $inverted-font-color;
+}
+
+nav {
+  border-bottom-color: $font-color;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  text-shadow: 3px 3px $background-color;
+
+  margin: 35px 35px 0;
+}
+
+nav h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0;
+  display: inline;
+  //line-height: 30px;
+}
+
+nav ul {
+  display: inline;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav img {
+  height: 20px;
+}
+
+body.invert-colors nav {
+  border-bottom-color: $inverted-font-color;
+  text-shadow: 3px 3px $inverted-background-color;
+}
+
+/* Horizontal and vertical centered image
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+div#centered {
+  left: 0;
+	// TODO: add js to change 100px on window.resize
+  height: calc(100% - 100px);
+	width: 100%;
+	position: fixed;
+	display: table;
+  z-index: -1;
+}
+
+div#centered p {
+	display: table-cell;
+  vertical-align: middle;
+}
+
+div#centered p img {
+	display: block;
+	margin-left: auto;
+  margin-right: auto;
+}
+
+.img404 {
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+}
+
+/* Collections (projects, things)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Collection item (full screen image + text)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
