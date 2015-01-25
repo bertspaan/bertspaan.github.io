@@ -1,0 +1,14 @@
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+baseurl:
+exclude: ['CNAME', 'README.md']
+
+defaults:
+  - scope:
+      path: "projects"
+    values:
+      layout: "project"
+
