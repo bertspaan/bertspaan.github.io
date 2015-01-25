@@ -1,0 +1,46 @@
+{% include header.html %}
+<div class="collection clearfix">
+	<div class="clearfix">
+    {% assign url = page.url | replace_first:'/','' | split:"/" | first %}
+    {% assign sorted_collection = site[url] | sort: 'date' | reverse %}
+    {% for project in sorted_collection %}
+    {% if project.show != false %}
+		<div class="collection-item contain clearfix">
+			<a class="block contain" href="{{ project.url }}">
+				<div style="background-image:url({{ project.url }}index.jpg)" class="collection-item-image"></div>
+				<div class="collection-item-overlay pin-top">
+          <h2><span>{{ project.title }}</span></h2>
+          <h3><span class="collection-item-date">{{ project.date | replace_first:'a', '' }}</span></h3>
+				</div>
+			</a>
+		</div>
+    {% endif %}
+    {% endfor %}
+	</div>
+</div>
+<script>
+  var months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+
+  var elements = document.getElementsByClassName('collection-item-date');
+  for (var i = 0; i < elements.length; i++) {
+    var date = elements[i].innerHTML;
+    if (date.length == 7) {
+      var month = parseInt(date.substring(5));
+      elements[i].innerHTML = months[month - 1] + ' ' + date.substring(0, 4 );
+    }
+  }
+</script>
+{% include footer.html %}

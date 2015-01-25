@@ -35,7 +35,7 @@
         <ul>
           <li><a href="{{ site.baseurl }}/{{ url }}">{{ site.data.menu[url] }}</a></li>
           {% if page.collection %}
-          <li>/ {{ page.title }}</li>
+          <li>/ {{ page.title | downcase }}</li>
           {% endif %}
         </ul>
       {% endif %}

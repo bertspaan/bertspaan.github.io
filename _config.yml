@@ -6,7 +6,6 @@ collections:
     output: true
     permalink: /things/:name/
 
-
 baseurl:
 exclude: ['CNAME', 'README.md']
 
