@@ -4,13 +4,14 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 $background-color: #0B0602;
-$font-color: #f7f4f2;
+//$font-color: #f7f4f2;
+$font-color: white;
 
 $inverted-background-color: $font-color;
 $inverted-font-color: $background-color;
 
 $page-margin: 35px;
-
+$text-shadow: 2px;
 $collection-item-padding: 10px;
 
 /* Fonts
@@ -171,15 +172,26 @@ body.invert-colors a:visited {
 }
 
 nav {
+  background-color: $background-color;
   border-bottom-color: $font-color;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  text-shadow: 3px 3px $background-color;
-
   margin: $page-margin $page-margin 0;
-
   position: relative;
   z-index: 100;
+}
+
+body.invert-colors nav {
+  background-color: $inverted-background-color;
+}
+
+body.transparent-text nav {
+  background-color: transparent;
+  text-shadow: $text-shadow $text-shadow $background-color;
+}
+
+body.transparent-text.invert-colors nav {
+  text-shadow: $text-shadow $text-shadow $inverted-background-color;
 }
 
 nav, nav h1, nav li {
@@ -213,7 +225,6 @@ nav img {
 
 body.invert-colors nav {
   border-bottom-color: $inverted-font-color;
-  text-shadow: 3px 3px $inverted-background-color;
 }
 
 /* Horizontal and vertical centered image
@@ -255,6 +266,7 @@ nav.fixed {
 }
 
 .collection {
+    //  border-bottom: $collection-item-padding;
   max-width: 1800px;
   margin: 0 ($page-margin - $collection-item-padding);
 }
@@ -360,7 +372,25 @@ nav.fixed {
 }
 
 #sections section span {
-  background-color: rgba(0, 0, 0, 0.7);
+  display: inline;
+  background-color: $background-color;
+  line-height: 1rem;
+  box-decoration-break: clone;
+  line-height: 40px;
+  padding: 8px;
+}
+
+body.invert-colors #sections section span {
+  background-color: $inverted-background-color;
+}
+
+body.transparent-text #sections section span {
+  background-color: transparent;
+  text-shadow: $text-shadow $text-shadow $background-color;
+}
+
+body.transparent-text.invert-colors #sections section span {
+  text-shadow: $text-shadow $text-shadow $inverted-background-color;
 }
 
 .section-background {
