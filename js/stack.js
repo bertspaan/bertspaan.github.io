@@ -10,15 +10,31 @@ layout:
 // backgroundImages is array containing Jekyll's
 // front matter, initialized in collection-item layout.
 var section = d3.selectAll("#sections section");
-section.append("div")
-    .attr("class", "section-background")
-    .style("background-image", function(d, i) {
-      if (backgroundImages[i]) {
-        return "url(" + backgroundImages[i] + ")";
-      } else {
-        return "url(" + (i + 1) + ".jpg)";
-      }
-    });
+
+section.each(function(d, i) {
+  if (backgroundImages[i]) {
+    var splitted = backgroundImages[i].split("."),
+        extension = splitted[splitted.length - 1];
+    if (extension === "mp4") {
+      d3.select(this).append("video")
+          .attr("autoplay", true)
+          .attr("loop", true)
+          .attr("poster", backgroundImages[i].replace("mp4", "jpg"))
+          .attr("class", "section-background")
+        .append("source")
+          .attr("type", "video/mp4")
+          .attr("src", backgroundImages[i]);
+    } else {
+      d3.select(this).append("div")
+        .attr("class", "section-background")
+        .style("background-image", "url(" + backgroundImages[i] + ")");
+    }
+  } else {
+    d3.select(this).append("div")
+      .attr("class", "section-background")
+      .style("background-image", "url(" + (i + 1) + ".jpg)");
+  }
+});
 
 var i = NaN,
     y = 0,

@@ -407,3 +407,11 @@ body.transparent-text.invert-colors #sections section span {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+video.section-background {
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto; height: auto;
+}
