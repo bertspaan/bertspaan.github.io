@@ -376,9 +376,11 @@ nav.fixed {
   display: inline;
   background-color: $background-color;
   line-height: 1rem;
-  box-decoration-break: clone;
   line-height: 40px;
   padding: 8px;
+
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 body.invert-colors #sections section span {
