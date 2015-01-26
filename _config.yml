@@ -18,7 +18,11 @@ defaults:
       path: "projects"
     values:
       layout: "collection-item"
+      invert-colors: false
+      transparent-text: true
   - scope:
       path: "things"
     values:
       layout: "collection-item"
+      invert-colors: false
+      transparent-text: true
