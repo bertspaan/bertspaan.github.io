@@ -4,7 +4,6 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 $background-color: #0B0602;
-//$font-color: #f7f4f2;
 $font-color: white;
 
 $inverted-background-color: $font-color;
@@ -13,6 +12,8 @@ $inverted-font-color: $background-color;
 $page-margin: 35px;
 $text-shadow: 2px;
 $collection-item-padding: 10px;
+
+$sections-width: 720px;
 
 /* Fonts
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -365,8 +366,8 @@ nav.fixed {
 
 #sections section {
   margin: $page-margin;
-  width: 80%;
-  max-width: 700px;
+  width: 90%;
+  max-width: $sections-width;
   z-index: 0;
   position: fixed;
 }
