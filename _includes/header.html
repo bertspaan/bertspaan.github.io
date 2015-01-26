@@ -12,11 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/skeleton.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/style.css" media="all" />
   </head>
-  {% if page.invert-colors %}
-  <body class="invert-colors">
-  {% else %}
-  <body>
-  {% endif %}
+  <body class="{% if page.invert-colors %}{{ 'invert-colors' }}{% endif %} {% if page.transparent-text %}{{ 'transparent-text' }}{% endif %}">
     {% if page.collection %}
     <nav class="fixed">
     {% else %}
