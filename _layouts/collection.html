@@ -9,7 +9,7 @@
 			<a class="block contain" href="{{ project.url }}">
 				<div style="background-image:url({{ project.url }}index.jpg)" class="collection-item-image"></div>
 				<div class="collection-item-overlay pin-top">
-          <h2><span>{{ project.title }}</span></h2>
+          <h2><span>{{ project.title | downcase }}</span></h2>
           <h3><span class="collection-item-date">{{ project.date | replace_first:'a', '' }}</span></h3>
 				</div>
 			</a>
@@ -39,7 +39,7 @@
     var date = elements[i].innerHTML;
     if (date.length == 7) {
       var month = parseInt(date.substring(5));
-      elements[i].innerHTML = months[month - 1] + ' ' + date.substring(0, 4 );
+      elements[i].innerHTML = months[month - 1].toLowerCase() + ' ' + date.substring(0, 4);
     }
   }
 </script>
