@@ -36,7 +36,14 @@ section.each(function(d, i) {
   }
 });
 
-var i = NaN,
+// TODO: scroll one page when arrows are pressed.
+// TODO: create a non-static positioned version for touch screens
+// TODO: Load image on current scroll position first (maybe hide images by default)
+
+var body = d3.select("body"),
+    touchy = "ontouchstart" in document && false,
+    resize = touchy ? resizeTouchy : resizeNoTouchy,
+    i = NaN,
     y = 0,
     yt,
     n = section.size(),
@@ -48,61 +55,30 @@ var sectionPrevious = d3.select(null),
 
 d3.select("body")
   .style("position", "absolute")
-  .style("width", "100%")
-  .style("height", n * 100 + "%");
+  .style("width", "100%");
 
 d3.select(window)
     .on("resize", resize)
-    .on("scroll", reposition)
-    .on("keydown", keydown);
+    .on("touchmove", reposition)
+    .on("scroll", reposition);
+    //.on("keydown", keydown);
 
-function resize() {
+function resizeNoTouchy() {
   var heading = d3.select("nav").node();
   var top = heading.offsetTop + heading.clientHeight;
   d3.selectAll("section").style("top", top + "px");
+
+  body.style("height", innerHeight * n + "px");
 }
 
-function keydown() {
-  var delta;
-  switch (d3.event.keyCode) {
-    case 39: // right arrow
-    if (d3.event.metaKey) return;
-    case 40: // down arrow
-    case 34: // page down
-    delta = d3.event.metaKey ? Infinity : 1; break;
-    case 37: // left arrow
-    if (d3.event.metaKey) return;
-    case 38: // up arrow
-    case 33: // page up
-    delta = d3.event.metaKey ? -Infinity : -1; break;
-    case 32: // space
-    delta = d3.event.shiftKey ? -1 : 1;
-    break;
-    default: return;
-  }
-
-  var y0 = isNaN(yt) ? y : yt;
-
-  yt = Math.max(0, Math.min(n - 1, (delta > 0
-      ? Math.floor(y0 + (1 + scrollRatio) / 2)
-      : Math.ceil(y0 - (1 - scrollRatio) / 2)) + delta));
-
-  d3.select(document.documentElement)
-      .interrupt()
-    .transition()
-      .duration(500)
-      .tween("scroll", function() {
-        var i = d3.interpolateNumber(pageYOffset, yt * window.innerHeight);
-        return function(t) { scrollTo(0, i(t)); };
-      })
-      .each("end", function() { yt = NaN; });
-
-  d3.event.preventDefault();
+function getCurrentSection() {
+  var y1 = window.pageYOffset / window.innerHeight,
+      i1 = Math.max(0, Math.min(n - 1, Math.floor(y1 + (1 + scrollRatio) / 2)));
+  return i1;
 }
 
 function reposition() {
-  var y1 = window.pageYOffset / window.innerHeight,
-      i1 = Math.max(0, Math.min(n - 1, Math.floor(y1 + (1 + scrollRatio) / 2)));
+  var i1 = getCurrentSection();
 
   if (i !== i1) {
     if (i1 === i + 1) { // advance one
