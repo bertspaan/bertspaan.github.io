@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     {% if page.title %}
-    <title>{{ page.title }} | bertspaan.nl</title>
+    <title>{{ page.title | downcase }} | bertspaan.nl</title>
     {% else %}
     <title>bertspaan.nl</title>
     {% endif %}
