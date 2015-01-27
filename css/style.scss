@@ -365,6 +365,7 @@ nav.fixed {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 #sections section {
+  box-sizing: border-box;
   margin: $page-margin;
   width: 90%;
   max-width: $sections-width;
