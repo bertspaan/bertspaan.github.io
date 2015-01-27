@@ -365,6 +365,8 @@ nav.fixed {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 #sections section {
+  // top will be overriden by D3 later
+  top: 86px;
   box-sizing: border-box;
   margin: $page-margin;
   width: 90%;
