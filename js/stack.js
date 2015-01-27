@@ -3,15 +3,35 @@ layout:
 ---
 // Adapted from Mike Bostock's Stack: http://mbostock.github.io/stack/
 
+// TODO: scroll one page when arrows are pressed.
+// TODO: create a non-static positioned version for touch screens
+// TODO: Load image on current scroll position first (maybe hide images by default)
+
+var body = d3.select("body"),
+    touchy = "ontouchstart" in document && false,
+    resize = touchy ? resizeTouchy : resizeNoTouchy,
+    i = NaN,
+    y = 0,
+    yt,
+    section = d3.selectAll("#sections section"),
+    n = section.size(),
+    scrollRatio = 1 / 6;
+
 {% if page.invert-colors == true %}
   d3.select("body").classed("invert-colors", true);
 {% endif %}
 
-// backgroundImages is array containing Jekyll's
-// front matter, initialized in collection-item layout.
-var section = d3.selectAll("#sections section");
-
 section.each(function(d, i) {
+  if (i < n - 1) {
+    d3.select(this)//.select("span")
+      .append("div")
+        .attr("class", "scroll-for-more")
+      .append("span")
+        .html("(Scroll down for more…)");
+  }
+
+  // backgroundImages is array containing Jekyll's
+  // front matter, initialized in collection-item layout.
   if (backgroundImages[i]) {
     var splitted = backgroundImages[i].split("."),
         extension = splitted[splitted.length - 1];
@@ -35,19 +55,6 @@ section.each(function(d, i) {
       .style("background-image", "url(" + (i + 1) + ".jpg)");
   }
 });
-
-// TODO: scroll one page when arrows are pressed.
-// TODO: create a non-static positioned version for touch screens
-// TODO: Load image on current scroll position first (maybe hide images by default)
-
-var body = d3.select("body"),
-    touchy = "ontouchstart" in document && false,
-    resize = touchy ? resizeTouchy : resizeNoTouchy,
-    i = NaN,
-    y = 0,
-    yt,
-    n = section.size(),
-    scrollRatio = 1 / 6;
 
 var sectionPrevious = d3.select(null),
     sectionCurrent = d3.select(section[0][0]),

@@ -384,6 +384,10 @@ nav.fixed {
   -webkit-box-decoration-break: clone;
 }
 
+.scroll-for-more {
+  font-size: 60%;
+}
+
 body.invert-colors #sections section span {
   background-color: $inverted-background-color;
 }
