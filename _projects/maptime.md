@@ -1,8 +1,6 @@
 ---
 title: Maptime Amsterdam
-subtitle: Monthly map hack night
 date: a2014-11
-github: waagsociety/maptimeAMS
 invert-colors: true
 transparent-text: false
 ---
