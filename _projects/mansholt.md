@@ -1,7 +1,6 @@
 ---
 title: Mansholt, Landscape in Perspective
 date: a2014-01
-
 invert-colors: true
 transparent-text: false
 ---
@@ -20,6 +19,6 @@ transparent-text: false
 
 <section>
   <span>
-    The map was created with TileMill, and was featured on <a href="http://visualoop.com/29668/100-outstanding-interactive-maps-of-2014-part-2#figcaption_attachment_27709">Visualoop</a> and <a href="http://googlemapsmania.blogspot.nl/2014/11/mapping-agricultural-landuse.html">Maps Mania</a>.
+    The map was created with TileMill, Leaflet and D3.js, and was featured on <a href="http://visualoop.com/29668/100-outstanding-interactive-maps-of-2014-part-2#figcaption_attachment_27709">Visualoop</a> and <a href="http://googlemapsmania.blogspot.nl/2014/11/mapping-agricultural-landuse.html">Maps Mania</a>.
   </span>
 </section>
