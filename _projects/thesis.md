@@ -7,7 +7,7 @@ invert-colors: true
 
 <section>
   <span>
-    I wrote my <a href="{{ site.baseurl }}/files/thesis.pdf">master's thesis</a> during my internship at <a href="http://www.tomtom.com/en_gb/">TomTom</a>, where I worked in the Map Team. I worked on an algorithm that was able to simplify polygonal road lines by using circular arcs. This algorithm was able to drastically save the storage footprint of TomTom's road maps without compromising on the aesthetical quality. Not drastically enough though, as of course also the price of SD cards dropped at the same time. Nevertheless, The results where afterwards patented by TomTom.
+    I wrote my <a href="{{ site.baseurl }}/files/thesis.pdf">master's thesis</a> during my internship at <a href="http://www.tomtom.com/en_gb/">TomTom</a>, where I worked in the Map Team. I designed an algorithm that is able to simplify polygonal road lines by using circular arcs, and drastically saved the storage footprint of TomTom's road maps without compromising on the aesthetical quality. Not drastically enough though, as of course also the price of SD cards dropped at the same time. Nevertheless, the results where afterwards patented by TomTom.
   </span>
 </section>
 
