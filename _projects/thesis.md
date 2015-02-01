@@ -1,5 +1,5 @@
 ---
-title: Master's Thesis
+title: Master's Thesis — internship at TomTom
 date: a2008
 transparent-text: false
 invert-colors: true
