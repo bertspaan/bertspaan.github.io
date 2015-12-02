@@ -2,10 +2,7 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
-  things:
-    output: true
-    permalink: /things/:name/
-
+  
 baseurl:
 exclude: ['CNAME', 'README.md']
 
@@ -16,12 +13,6 @@ defaults:
       layout: "default"
   - scope:
       path: "projects"
-    values:
-      layout: "collection-item"
-      invert-colors: false
-      transparent-text: true
-  - scope:
-      path: "things"
     values:
       layout: "collection-item"
       invert-colors: false

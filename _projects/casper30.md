@@ -1,6 +1,7 @@
 ---
 title: Casper 30
-date: a2013-11
+date: 2013-11-01
+display-date: 2013-11
 invert-colors: true
 ---
 
