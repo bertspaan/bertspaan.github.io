@@ -22,17 +22,17 @@
       <h1><a href="{{ site.baseurl }}/">bert spaan</a></h1>
       {% assign url = page.url | replace_first:'/','' | split:"/" | first %}
       {% if url == 'index.html' %}
+      {% comment %} for jekyll 3, use `if page.url == '/'` {% endcomment %}
         <span class="divider">:</span>
         <ul>
           {% for item in site.data.menu %}
             <li><a href="{{ site.baseurl }}/{{ item[0] }}">{{ item[1] }}</a>,</li>
           {% endfor %}
-          <!-- <li><a href="https://twitter.com/bertspaan"><img src="{{ site.baseurl }}/images/twitter.svg" /></a>,</li>
-          <li><a href="https://github.com/bertspaan"><img src="{{ site.baseurl }}/images/octocat.svg" /></a></li> -->
           <li><a href="https://twitter.com/bertspaan">twitter</a>,</li>
           <li><a href="https://github.com/bertspaan">github</a></li>
         </ul>
       {% elsif url == '404.html' %}
+      {% comment %} for jekyll 3, use `elsif page.url == '/404.html'` {% endcomment %}
         <span class="divider">:</span>
         <ul>
           <li>404 - page not found</li>
