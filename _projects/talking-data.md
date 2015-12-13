@@ -1,7 +1,7 @@
 ---
 title: Talking Data
-date: a2013-09
-
+date: 2013-09-01
+display-date: 2013-09
 ---
 <section>
   <span>

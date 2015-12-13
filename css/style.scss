@@ -166,6 +166,16 @@ a:visited {
   color: $font-color;
 }
 
+section a  {
+  text-decoration: none;
+  // background-image: linear-gradient(to top,#fff 0%,#fff 49%,#000 50%,#000 100%);
+  background-image: linear-gradient(to top,#000 0%,#000 49%,#fff 50%,#fff 100%);
+  background-size: 2px 2px;
+  background-repeat: repeat-x;
+  background-position: 0 97.5%;
+  // text-shadow: 0.03em 0 #fff,-0.03em 0 #fff,0.05em 0 #fff,-0.05em 0 #fff,0.09em 0 #fff,-0.075em 0 #fff;
+}
+
 body.invert-colors a,
 body.invert-colors a:hover,
 body.invert-colors a:visited {

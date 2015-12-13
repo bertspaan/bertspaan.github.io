@@ -1,6 +1,7 @@
 ---
 title: Nederland van Boven
-date: a2012-04
+date: 2012-04-01
+display-date: 2012-04
 invert-colors: true
 transparent-text: false
 background-images:

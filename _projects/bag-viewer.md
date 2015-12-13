@@ -1,6 +1,7 @@
 ---
-title: BAG-viewer
-date: a2010-03
+title: BAG viewer
+date: 2010-03-01
+display-date: 2010-03
 transparent-text: false
 invert-colors: true
 ---

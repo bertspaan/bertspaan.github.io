@@ -1,6 +1,7 @@
 ---
 title: Mansholt, Landscape in Perspective
-date: a2014-01
+date: 2014-01-01
+display-date: 2014-01
 invert-colors: true
 transparent-text: false
 ---

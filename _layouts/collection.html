@@ -10,7 +10,7 @@
 				<div style="background-image:url({{ project.url }}index.jpg)" class="collection-item-image"></div>
 				<div class="collection-item-overlay pin-top">
           <h2><span>{{ project.title | downcase }}</span></h2>
-          <h3><span class="collection-item-date">{{ project.date | replace_first:'a', '' }}</span></h3>
+          <h3><span class="collection-item-date">{{ project.display-date }}</span></h3>
 				</div>
 			</a>
 		</div>

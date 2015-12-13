@@ -8,7 +8,7 @@ display-date: 2014, 2015
 
 <section>
   <span>
-    Started in San Francisco in the summer of 2013, <a href="http://maptime.io/">Maptime</a> is an open learning environment for everybody interested in learning about making digital maps. Maptime started small, but after San Francisco many other American cities followed, and in November 2014, I organized the first edition of <a href="http://maptime-ams.github.io/">Maptime Amsterdam</a>. <i>Maps for all forever!</i> And don't forget to take a look at the website I made for <a href="http://maptime-ams.github.io/">Maptime Amsterdam</a>: Amsterdam's buildings, but rainbowy.
+    Started in San Francisco in the summer of 2013, <a href="http://maptime.io/">Maptime</a> is an open learning environment for everybody interested in learning about making digital maps. Maptime started small, but after San Francisco many other American cities followed, and in November 2014, I organized the first edition of <a href="http://maptime-ams.github.io/">Maptime Amsterdam</a>. <i>Maps for all forever!</i> And don't forget to take a look at the website I made for <a href="http://maptime-ams.github.io/">Maptime Amsterdam</a>.
   </span>
 </section>
 

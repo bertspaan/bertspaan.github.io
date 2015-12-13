@@ -1,6 +1,7 @@
 ---
 title: CitySDK Linked Data API
-date: a2013
+date: 2013-01-01
+display-date: 2013
 invert-colors: true
 transparent-text: false
 ---
