@@ -1,14 +1,15 @@
 ---
 title: wolkd
 date: 2015-07-01
-display-date: 2015-07
-invert-colors: true
-transparent-text: false
+display_date: 2015-07
+style:
+  invert_colors: true
+  transparent_text: false
 ---
 
 <section>
   <span>
-    Node.js server and user interface to control WS2801 RGB LED strips via SPI, built to control <a href="../wolk-bike">wolk.bike</a>'s LEDs.
+    wolkd is a Node.js server and user interface to control WS2801 RGB LED strips via SPI, built to control <a href="../wolk-bike">wolk.bike</a>'s LEDs.
   </span>
 </section>
 

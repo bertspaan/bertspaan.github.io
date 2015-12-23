@@ -1,9 +1,9 @@
 ---
 title: OpenStreetMap Data Etches
 date: 2014-12-01
-display-date: 2014-12
-invert-colors: false
-background-images:
+display_date: 2014-12
+style:
+  invert_colors: false
 ---
 
 <section>

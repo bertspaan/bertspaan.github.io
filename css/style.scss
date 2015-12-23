@@ -425,6 +425,10 @@ body.transparent-text.invert-colors #sections section span {
   background-position: center;
 }
 
+body.contain .section-background {
+  background-size: contain;
+}
+
 video.section-background {
   right: 0;
   bottom: 0;

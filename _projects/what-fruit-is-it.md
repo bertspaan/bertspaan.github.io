@@ -1,8 +1,9 @@
 ---
 title: What fruit is it?
 date: 2015-05-01
-display-date: 2015-05
-invert-colors: false
+display_date: 2015-05
+style:
+  invert_colors: false
 ---
 
 <section>

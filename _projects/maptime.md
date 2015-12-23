@@ -1,9 +1,7 @@
 ---
 title: Maptime Amsterdam
 date: 2014-11-01
-display-date: 2014, 2015
-#invert-colors: true
-#transparent-text: false
+display_date: 2014, 2015
 ---
 
 <section>

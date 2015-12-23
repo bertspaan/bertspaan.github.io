@@ -1,9 +1,10 @@
 ---
 title: Building Generalization
 date: 2007-01-01
-display-date: 2007-01
-invert-colors: true
-transparent-text: false
+display_date: 2007-01
+style:
+  invert_colors: true
+  transparent_text: false
 ---
 
 <section>

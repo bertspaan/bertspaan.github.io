@@ -1,19 +1,41 @@
+baseurl:
+exclude:
+  - CNAME
+  - README.md
+
 collections:
   projects:
     output: true
     permalink: /projects/:name/
-  
-baseurl:
-exclude: ['CNAME', 'README.md']
+
+  ditwas:
+    output: true
+    permalink: /ditwas/:path/
 
 defaults:
   - scope:
-      path: ""
+      path: ''
     values:
-      layout: "default"
+      layout: default
+
   - scope:
-      path: "projects"
+      path: projects
     values:
-      layout: "collection-item"
-      invert-colors: false
-      transparent-text: true
+      layout: collection-item
+      style:
+        invert_colors: false
+        transparent_text: true
+
+  - scope:
+      path: ditwas
+    values:
+      layout: ditwas
+      date_in_title: true
+      use_sizes: true
+      use_file_server: true
+      single: true
+      date_from_url: true
+      image_from_url: true
+      style:
+        invert_colors: false
+        transparent_text: true

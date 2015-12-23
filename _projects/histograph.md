@@ -1,9 +1,10 @@
 ---
 title: Histograph
 date: 2015-09-01
-display-date: 2015
-invert-colors: true
-transparent-text: false
+display_date: 2015
+style:
+  invert_colors: true
+  transparent_text: false
 show: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Street Patterns
 date: 2015-03-01
-display-date: 2015-03
+display_date: 2015-03
 ---
 
 <section>
