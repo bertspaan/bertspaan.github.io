@@ -31,10 +31,8 @@ function createCollection(collection, url, config) {
     elements.select('.collection-item-date').html(function(d) {
       if (d.display_date) {
         return formatDate(d.display_date).toLowerCase();
-      } else if (d.date_from_url) {
-        return dateFromUrl(d.url);
       } else {
-        return d.date;
+        return formatDate(dateFromItem(d));
       }
     });
 
@@ -60,7 +58,7 @@ function getCollection(collection, callback) {
     callback(items.filter(function(d) {
       return d.show !== false;
     }).sort(function(a, b) {
-      return new Date(b.date) - new Date(a.date);
+      return new Date(dateFromItem(b)) - new Date(dateFromItem(a));
     }));
   });
 }
@@ -171,8 +169,16 @@ function formatDate(date) {
   }
 }
 
+function dateFromItem(item) {
+  if (item.date_from_url) {
+    return (dateFromUrl(item.url));
+  } else {
+    return item.date;
+  }
+}
+
 function dateFromUrl(url) {
-  return formatDate(splitUrl(url)[1]);
+  return splitUrl(url)[1];
 }
 
 /*
@@ -274,8 +280,9 @@ function setLightsOut() {
 }
 
 function toggleLightsOut() {
-  lightsOutOpacity -= 0.25;
-  if (lightsOutOpacity < 0) {
+  var diff = 0.3334;
+  lightsOutOpacity -= diff;
+  if (lightsOutOpacity < -.1) {
     lightsOutOpacity = 1;
   }
 
