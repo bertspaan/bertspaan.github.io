@@ -65,10 +65,20 @@ function getCollection(collection, callback) {
   });
 }
 
+var prevItem;
+var nextItem;
 function findItem(items, url) {
   for (var i = 0; i < items.length; i++) {
     var item = items[i];
     if (item.url === url) {
+      if (i > 0) {
+        prevItem = items[i - 1];
+      }
+
+      if (i < items.length - 1) {
+        nextItem = items[i + 1];
+      }
+
       break;
     }
   }
@@ -215,18 +225,26 @@ function readLocalStorage() {
   setLightsOut();
 }
 
-// function prev() {
-//   if (prevUrl) {
-//     location.href = prevUrl;
-//   }
-// }
-//
-// function next() {
-//   if (nextUrl) {
-//     location.href = nextUrl;
-//   }
-// }
-//
+
+
+
+
+
+
+
+
+function prev() {
+  if (prevItem) {
+    location.href = prevItem.url;
+  }
+}
+
+function next() {
+  if (nextItem) {
+    location.href = nextItem.url;
+  }
+}
+
 
 
 
