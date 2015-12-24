@@ -1,9 +1,10 @@
 ---
 title: Latlong
 date: 2013-09-01
-display-date: 2013-09
-invert-colors: true
-transparent-text: false
+display_date: 2013-09
+style:
+  invert_colors: true
+  transparent_text: false
 ---
 
 <section>

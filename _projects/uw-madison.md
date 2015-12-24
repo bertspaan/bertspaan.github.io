@@ -1,9 +1,10 @@
 ---
 title: Cartography at the University of Wisconsin–Madison
 date: 2008-01-01
-display-date: 2008-01
-invert-colors: true
-transparent-text: false
+display_date: 2008-01
+style:
+  invert-colors: true
+  transparent-text: false
 ---
 
 <section>

@@ -1,0 +1,13 @@
+{% assign url = page.url | replace_first:'/','' | split:'/' | first %}
+{% assign collection = site.collections[url]  %}
+[
+	{% for item in collection.docs %}
+	{
+		{% for kv in item %}
+		{% if kv[0] != 'output' and kv[0] != 'path' and kv[0] != 'relative_path' and kv[0] != 'content' and kv[0] != 'layout' %}
+			"{{kv[0]}}": {{kv[1] | jsonify}}{% if forloop.rindex0 > 0 %},{% endif %}
+		{% endif %}
+		{% endfor %}
+	}{% if forloop.rindex0 > 0 %},{% endif %}
+	{% endfor %}
+]

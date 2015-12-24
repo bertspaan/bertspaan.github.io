@@ -1,8 +1,9 @@
 ---
 title: Casper 30
 date: 2013-11-01
-display-date: 2013-11
-invert-colors: true
+display_date: 2013-11
+style:
+  invert_colors: true
 ---
 
 <section>

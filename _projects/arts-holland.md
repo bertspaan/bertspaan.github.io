@@ -1,10 +1,11 @@
 ---
 title: Arts Holland
 date: 2013-03-01
-display-date: 2013-03
-invert-colors: true
-transparent-text: false
-background-images:
+display_date: 2013-03
+style:
+  invert_colors: true
+  transparent_text: false
+background_images:
   - 1.jpg
   - 2.jpg
   - tutorial.gif

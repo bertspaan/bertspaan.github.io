@@ -1,9 +1,10 @@
 ---
 title: Master's Thesis — internship at TomTom
 date: 2008-01-01
-display-date: 2008-01
-transparent-text: false
-invert-colors: true
+display_date: 2008-01
+style:
+  transparent_text: false
+  invert_colors: true
 ---
 
 <section>

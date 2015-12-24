@@ -1,7 +1,7 @@
 ---
 title: World Heritage Podium
 date: 2013-06-01
-display-date: 2013-06
+display_date: 2013-06
 ---
 <section>
   <span>

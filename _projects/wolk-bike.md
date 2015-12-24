@@ -1,7 +1,7 @@
 ---
 title: wolk.bike
 date: 2015-07-01
-display-date: 2015-07
+display_date: 2015-07
 ---
 
 <section>

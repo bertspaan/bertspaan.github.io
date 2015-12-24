@@ -1,10 +1,11 @@
 ---
 title: Nederland van Boven
 date: 2012-04-01
-display-date: 2012-04
-invert-colors: true
-transparent-text: false
-background-images:
+display_date: 2012-04
+style:
+  invert_colors: true
+  transparent_text: false
+background_images:
   - 1.mp4
   - 2.jpg
   - 3.jpg

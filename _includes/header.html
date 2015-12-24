@@ -12,10 +12,12 @@
     <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/skeleton.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/style.css" media="all" />
     <link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon.png">
+    <script src="{{ site.baseurl }}/js/d3.v3.min.js"></script>
+    <script src="{{ site.baseurl }}/js/functions.js"></script>
   </head>
-  <body class="{% if page.invert-colors %}{{ 'invert-colors' }}{% endif %} {% if page.transparent-text %}{{ 'transparent-text' }}{% endif %}">
-    {% if page.collection %}
-    <nav class="fixed">
+  <body>
+    {% if page.layout != 'collection' %}
+    <nav class='fixed lights-out'>
     {% else %}
     <nav>
     {% endif %}
@@ -41,7 +43,7 @@
         <span class="divider">/</span>
         <ul>
           <li><a href="{{ site.baseurl }}/{{ url }}">{{ site.data.menu[url] }}</a></li>
-          {% if page.collection %}
+          {% if page.layout != 'collection' %}
           <li>/ {{ page.title | downcase }}</li>
           {% endif %}
         </ul>
