@@ -103,7 +103,12 @@ function getImagePath(url, config, item, index) {
     if (index) {
       size = config.sizes[0];
     }
-    return splitUrl(item.url).slice(0, 2).join('/') + '/sizes/' + size.join('x') + '/'
+
+    var sizeStr = size.map(function(i) {
+      return i.toString().trim();
+    }).join('x')
+
+    return splitUrl(item.url).slice(0, 2).join('/') + '/sizes/' + sizeStr + '/'
   } else {
     return item.url;
   }
