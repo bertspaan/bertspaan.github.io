@@ -18,6 +18,7 @@ $inverted-background-color: $font-color;
 $inverted-font-color: $background-color;
 
 $page-margin: 35px;
+
 $text-shadow: 2px;
 $collection-item-padding: 10px;
 
@@ -27,8 +28,7 @@ $sections-width: 720px;
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 body {
-  color: $font-color;
-  background: $background-color;
+  min-height: 100vh;
   font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
@@ -36,42 +36,8 @@ h1, h2, h3, h4, h5, h6, nav li {
   font-family: 'Edmondsans', 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
-body.invert-colors {
-  color: $inverted-font-color;
-  background: $inverted-background-color;
-}
-
-.contain {
-  position: relative;
-}
-
-.hidden {
-  display: none;
-}
-
-.block {
-  display: block;
-}
-
-.clearfix {
-  display: block;
-}
-
-.clearfix:after {
-  content: '';
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-nav a {
-  text-decoration: none;
-}
-
-a:active, a:focus {
-  outline-style: none;
-  -moz-outline-style:none;
+article {
+  padding: $page-margin;
 }
 
 a,
@@ -79,6 +45,119 @@ a:hover,
 a:visited {
   color: $font-color;
 }
+
+/* Base classes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.hidden {
+  display: none;
+}
+
+*:active, *:focus {
+  outline-style: none;
+  -moz-outline-style:none;
+}
+
+/* Body styles and overrides
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body {
+  color: $font-color;
+  background: $background-color;
+}
+
+body.invert-colors {
+  color: $inverted-font-color;
+  background: $inverted-background-color;
+}
+
+body.invert-colors a,
+body.invert-colors a:hover,
+body.invert-colors a:visited {
+  color: $inverted-font-color;
+}
+
+/* Padding
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body {
+  // padding: $page-margin;
+}
+
+/* Menu
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+nav {
+  margin-bottom: 20px;
+  background-color: $background-color;
+
+  // TODO: hier ook gradient!
+  border-bottom-color: $font-color;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  // margin: $page-margin $page-margin 0;
+  // position: relative;
+  // z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav, nav h1, nav li {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0;
+}
+
+nav ul,
+nav ul li,
+nav h1 {
+  display: inline;
+}
+
+nav .divider {
+  display: inline-block;
+  position: relative;
+  width: 0.4em;
+}
+
+/* Horizontal and vertical centered image
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.center-of-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img404 {
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+}
+
+/* Media queries for margin and font size
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media (max-width: 600px) {
+  article {
+    padding: 6vw;
+  }
+
+  nav, nav h1, nav li {
+    font-size: 1.5rem;
+  }
+}
+
+/* Sections
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 section a  {
   text-decoration: none;
@@ -90,254 +169,231 @@ section a  {
   // text-shadow: 0.03em 0 #fff,-0.03em 0 #fff,0.05em 0 #fff,-0.05em 0 #fff,0.09em 0 #fff,-0.075em 0 #fff;
 }
 
-body.invert-colors a,
-body.invert-colors a:hover,
-body.invert-colors a:visited {
-  color: $inverted-font-color;
-}
-
-nav {
-  background-color: $background-color;
-  border-bottom-color: $font-color;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  margin: $page-margin $page-margin 0;
-  position: relative;
-  z-index: 100;
-}
-
-body.invert-colors nav {
-  background-color: $inverted-background-color;
-}
-
-body.transparent-text nav {
-  background-color: transparent;
-  text-shadow: $text-shadow $text-shadow $background-color;
-}
-
-body.transparent-text.invert-colors nav {
-  text-shadow: $text-shadow $text-shadow $inverted-background-color;
-}
-
-nav, nav h1, nav li {
-  font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 0;
-}
-
-nav h1 {
-  display: inline;
-  //line-height: 30px;
-}
-
-nav ul {
-  display: inline;
-}
-
-nav ul li {
-  display: inline;
-}
-
-nav img {
-  height: 18px;
-}
-
-.divider {
-  display: inline-block;
-  position: relative;
-  width: 0.4em;
-}
-
-body.invert-colors nav {
-  border-bottom-color: $inverted-font-color;
-}
-
-/* Horizontal and vertical centered image
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.center-of-page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.img404 {
-  transform:rotate(180deg);
-  -ms-transform:rotate(180deg);
-  -webkit-transform:rotate(180deg);
-}
-
-/* Collections (projects, things)
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-nav.fixed {
-  position: fixed;
-  width: calc(100% - #{$page-margin * 2});
-}
-
-.collection {
-    //  border-bottom: $collection-item-padding;
-  max-width: 1800px;
-  margin: 0 ($page-margin - $collection-item-padding);
-}
-
-.collection-item {
-  padding: $collection-item-padding;
-  float: left;
-  width: 25.0000%;
-}
-
-.collection-item, .collection-item:after, .collection-item:before {
-  box-sizing: border-box;
-}
-
-.collection-item-overlay {
-  padding: $collection-item-padding;
-}
-
-.collection-item-overlay h2 span,
-.collection-item-overlay h3 span {
-  background-color: $background-color;
-}
-
-.pin-top {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-}
-
-.collection-item-image {
-  height: 0;
-  padding-bottom: 100%;
-  background-size: cover;
-  background-position: 50%;
-}
-
-@media only screen and (max-width:640px) {
-  .collection-item {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (max-width:1200px) {
-  .collection-item {
-    width: 33.3333%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .collection-item {
-    width: 50%;
-  }
-}
-
-@media only screen and (max-width:640px) {
-  .collection-item {
-    width: 100%;
-  }
-
-  .collection-item-image {
-    padding-bottom: 50%;
-  }
-}
-
-.collection-item h2 span,
-.collection-item h3 span {
-  padding: 10px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
-.collection-item h2 {
-  margin-top: 7px;
-  line-height: inherit;
-  margin-bottom: 0;
-}
-
-.collection-item h3 {
-  margin-top: 10px;
-}
-
-.collection-item h2 {
-  font-size: 1.5rem;
-  letter-spacing: 0;
-}
-
-.collection-item h3 {
-  font-size: 1rem;
-  letter-spacing: 0;
-}
-
-/* Single collection item (full screen image + text)
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-#sections section {
-  // top will be overriden by D3 later
-  top: 86px;
-  box-sizing: border-box;
-  margin: $page-margin;
-  width: 90%;
-  max-width: $sections-width;
-  z-index: 0;
-  position: fixed;
-}
-
-#sections section span {
-  display: inline;
-  background-color: $background-color;
-  line-height: 1rem;
-  line-height: 40px;
+section {
   padding: 8px;
-
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  width: 90%;
+  max-width: 720px;
 }
 
-.scroll-for-more {
-  font-size: 60%;
-}
 
-body.invert-colors #sections section span {
-  background-color: $inverted-background-color;
-}
+//
+//
+//
+// .contain {
+//   position: relative;
+// }
+//
+// .block {
+//   display: block;
+// }
+//
+// .clearfix {
+//   display: block;
+// }
+//
+// .clearfix:after {
+//   content: '';
+//   display: block;
+//   height: 0;
+//   clear: both;
+//   visibility: hidden;
+// }
+//
+//
+//
+//
+//
+//
+//
+//
 
-body.transparent-text #sections section span {
-  background-color: transparent;
-  text-shadow: $text-shadow $text-shadow $background-color;
-}
+//
+// body.invert-colors nav {
+//   background-color: $inverted-background-color;
+// }
+//
+// body.transparent-text nav {
+//   background-color: transparent;
+//   text-shadow: $text-shadow $text-shadow $background-color;
+// }
+//
+// body.transparent-text.invert-colors nav {
+//   text-shadow: $text-shadow $text-shadow $inverted-background-color;
+// }
+//
+//
+//
+// body.invert-colors nav {
+//   border-bottom-color: $inverted-font-color;
+// }
+//
 
-body.transparent-text.invert-colors #sections section span {
-  text-shadow: $text-shadow $text-shadow $inverted-background-color;
-}
-
-.section-background {
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-body.contain .section-background {
-  background-size: contain;
-}
-
-video.section-background {
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto; height: auto;
-}
+//
+// /* Collections (projects, things)
+// –––––––––––––––––––––––––––––––––––––––––––––––––– */
+//
+// nav.fixed {
+//   position: fixed;
+//   width: calc(100% - #{$page-margin * 2});
+// }
+//
+// .collection {
+//     //  border-bottom: $collection-item-padding;
+//   max-width: 1800px;
+//   margin: 0 ($page-margin - $collection-item-padding);
+// }
+//
+// .collection-item {
+//   padding: $collection-item-padding;
+//   float: left;
+//   width: 25.0000%;
+// }
+//
+// .collection-item, .collection-item:after, .collection-item:before {
+//   box-sizing: border-box;
+// }
+//
+// .collection-item-overlay {
+//   padding: $collection-item-padding;
+// }
+//
+// .collection-item-overlay h2 span,
+// .collection-item-overlay h3 span {
+//   background-color: $background-color;
+// }
+//
+// .pin-top {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   left: 0;
+// }
+//
+// .collection-item-image {
+//   height: 0;
+//   padding-bottom: 100%;
+//   background-size: cover;
+//   background-position: 50%;
+// }
+//
+// @media only screen and (max-width:640px) {
+//   .collection-item {
+//     width: 100%;
+//     max-width: 100%;
+//   }
+// }
+//
+// @media only screen and (max-width:1200px) {
+//   .collection-item {
+//     width: 33.3333%;
+//   }
+// }
+//
+// @media only screen and (max-width:900px) {
+//   .collection-item {
+//     width: 50%;
+//   }
+// }
+//
+// @media only screen and (max-width:640px) {
+//   .collection-item {
+//     width: 100%;
+//   }
+//
+//   .collection-item-image {
+//     padding-bottom: 50%;
+//   }
+// }
+//
+// .collection-item h2 span,
+// .collection-item h3 span {
+//   padding: 10px;
+//   -webkit-box-decoration-break: clone;
+//   box-decoration-break: clone;
+// }
+//
+// .collection-item h2 {
+//   margin-top: 7px;
+//   line-height: inherit;
+//   margin-bottom: 0;
+// }
+//
+// .collection-item h3 {
+//   margin-top: 10px;
+// }
+//
+// .collection-item h2 {
+//   font-size: 1.5rem;
+//   letter-spacing: 0;
+// }
+//
+// .collection-item h3 {
+//   font-size: 1rem;
+//   letter-spacing: 0;
+// }
+//
+// /* Single collection item (full screen image + text)
+// –––––––––––––––––––––––––––––––––––––––––––––––––– */
+//
+// #sections section {
+//   // top will be overriden by D3 later
+//   top: 86px;
+//   box-sizing: border-box;
+//   margin: $page-margin;
+//   width: 90%;
+//   max-width: $sections-width;
+//   z-index: 0;
+//   position: fixed;
+// }
+//
+// #sections section span {
+//   display: inline;
+//   background-color: $background-color;
+//   line-height: 1rem;
+//   line-height: 40px;
+//   padding: 8px;
+//
+//   box-decoration-break: clone;
+//   -webkit-box-decoration-break: clone;
+// }
+//
+// .scroll-for-more {
+//   font-size: 60%;
+// }
+//
+// body.invert-colors #sections section span {
+//   background-color: $inverted-background-color;
+// }
+//
+// body.transparent-text #sections section span {
+//   background-color: transparent;
+//   text-shadow: $text-shadow $text-shadow $background-color;
+// }
+//
+// body.transparent-text.invert-colors #sections section span {
+//   text-shadow: $text-shadow $text-shadow $inverted-background-color;
+// }
+//
+// .section-background {
+//   z-index: -1;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: center;
+// }
+//
+// body.contain .section-background {
+//   background-size: contain;
+// }
+//
+// video.section-background {
+//   right: 0;
+//   bottom: 0;
+//   min-width: 100%;
+//   min-height: 100%;
+//   width: auto; height: auto;
+// }

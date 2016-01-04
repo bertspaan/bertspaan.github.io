@@ -14,36 +14,37 @@
     <script src="{{ site.baseurl }}/js/functions.js"></script>
   </head>
   <body>
-    {% if page.layout != 'collection' %}
-    <nav class='fixed lights-out'>
-    {% else %}
-    <nav>
-    {% endif %}
-      <h1><a href="{{ site.baseurl }}/">bert spaan</a></h1>
-      {% assign url = page.url | replace_first:'/','' | split:"/" | first %}
-      {% if url == 'index.html' %}
-      {% comment %} for jekyll 3, use `if page.url == '/'` {% endcomment %}
-        <span class="divider">:</span>
-        <ul>
-          {% for item in site.data.menu %}
-            <li><a href="{{ site.baseurl }}/{{ item[0] }}">{{ item[1] }}</a>,</li>
-          {% endfor %}
-          <li><a href="https://twitter.com/bertspaan">twitter</a>,</li>
-          <li><a href="https://github.com/bertspaan">github</a></li>
-        </ul>
-      {% elsif url == '404.html' %}
-      {% comment %} for jekyll 3, use `elsif page.url == '/404.html'` {% endcomment %}
-        <span class="divider">:</span>
-        <ul>
-          <li>404 - page not found</li>
-        </ul>
+    <article>
+      {% if page.layout != 'collection' %}
+      <nav class='fixed lights-out'>
       {% else %}
-        <span class="divider">/</span>
-        <ul>
-          <li><a href="{{ site.baseurl }}/{{ url }}">{{ site.data.menu[url] }}</a></li>
-          {% if page.layout != 'collection' %}
-          <li>/ {{ page.title | downcase }}</li>
-          {% endif %}
-        </ul>
+      <nav>
       {% endif %}
-    </nav>
+        <h1><a href="{{ site.baseurl }}/">bert spaan</a></h1>
+        {% assign url = page.url | replace_first:'/','' | split:"/" | first %}
+        {% if url == 'index.html' %}
+        {% comment %} for jekyll 3, use `if page.url == '/'` {% endcomment %}
+          <span class="divider">:</span>
+          <ul>
+            {% for item in site.data.menu %}
+              <li><a href="{{ site.baseurl }}/{{ item[0] }}">{{ item[1] }}</a>,</li>
+            {% endfor %}
+            <li><a href="https://twitter.com/bertspaan">twitter</a>,</li>
+            <li><a href="https://github.com/bertspaan">github</a></li>
+          </ul>
+        {% elsif url == '404.html' %}
+        {% comment %} for jekyll 3, use `elsif page.url == '/404.html'` {% endcomment %}
+          <span class="divider">:</span>
+          <ul>
+            <li>404 - page not found</li>
+          </ul>
+        {% else %}
+          <span class="divider">/</span>
+          <ul>
+            <li><a href="{{ site.baseurl }}/{{ url }}">{{ site.data.menu[url] }}</a></li>
+            {% if page.layout != 'collection' %}
+            <li>/ {{ page.title | downcase }}</li>
+            {% endif %}
+          </ul>
+        {% endif %}
+      </nav>
