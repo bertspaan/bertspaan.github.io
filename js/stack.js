@@ -15,6 +15,13 @@ function stack(sections, backgroundImages, getUrl) {
       n = sections.size(),
       scrollRatio = 1 / 6;
 
+  // TODO: andere naam dan divs!
+  var divs = d3.select('#background-images')
+      .selectAll('div').data(sections)
+    .enter()
+      .append('div')
+      .attr('class', 'background-image');
+
   sections.each(function(d, i) {
     if (i < n - 1) {
       d3.select(this)//.select("span")
@@ -31,23 +38,21 @@ function stack(sections, backgroundImages, getUrl) {
       var extension = splitted[splitted.length - 1];
 
       if (extension === "mp4") {
-        d3.select(this).append("video")
-            .attr("autoplay", true)
-            .attr("loop", true)
-            .attr("poster", backgroundImages[i].replace("mp4", "jpg"))
-            .attr("class", "section-background")
-          .append("source")
-            .attr("type", "video/mp4")
-            .attr("src", getUrl(backgroundImages[i]));
+        // d3.select(this).append("video")
+        //     .attr("autoplay", true)
+        //     .attr("loop", true)
+        //     .attr("poster", backgroundImages[i].replace("mp4", "jpg"))
+        //     .attr("class", "section-background")
+        //   .append("source")
+        //     .attr("type", "video/mp4")
+        //     .attr("src", getUrl(backgroundImages[i]));
       } else {
-        d3.select(this).append("div")
-          .attr("class", "section-background")
-          .style("background-image", "url(" + getUrl(backgroundImages[i]) + ")");
+        divs
+          .style('background-image', 'url(' + getUrl(backgroundImages[i]) + ')');
       }
     } else {
-      d3.select(this).append("div")
-        .attr("class", "section-background")
-        .style("background-image", 'url(' + getUrl((i + 1) + '.jpg') + ')');
+      divs
+        .style('background-image', 'url(' + getUrl((i + 1) + '.jpg') + ')');
     }
   });
 

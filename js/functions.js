@@ -16,8 +16,11 @@ function createCollection(collection, url, config) {
     //   {% capture image_url %}{{ image_url }}{{ site.data.hash[hash_key] }}/{% endcapture %}
     // {% endif %}
 
-    elements.select('.collection-item-image').style('background-image', function(d) {
+
+    elements.select('.collection-item-wrapper').style('background-image', function(d) {
       return 'url(' + getImageUrl(url, config, d, true) + ')';
+    }).on('click', function(d) {
+      location.href = d.url;
     });
 
     elements.select('.collection-item-link').attr('href', function(d) {
@@ -45,6 +48,7 @@ function createItem(collection, url, config) {
     var item = findItem(items, url);
 
     var sections = d3.selectAll('#sections section');
+
     stack(sections, item.background_images || [], function(url) {
       return getImageUrl(url, config, item, false);
     });

@@ -37,6 +37,7 @@ h1, h2, h3, h4, h5, h6, nav li {
 }
 
 article {
+  position: relative;
   padding: $page-margin;
 }
 
@@ -89,6 +90,10 @@ body {
 
 nav {
   margin-bottom: 20px;
+
+  margin-left: 10px;
+  margin-right: 10px;
+
   background-color: $background-color;
 
   // TODO: hier ook gradient!
@@ -159,6 +164,12 @@ nav .divider {
 /* Sections
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+section {
+  padding: 8px;
+  width: 90%;
+  max-width: 720px;
+}
+
 section a  {
   text-decoration: none;
   // background-image: linear-gradient(to top,#fff 0%,#fff 49%,#000 50%,#000 100%);
@@ -169,12 +180,121 @@ section a  {
   // text-shadow: 0.03em 0 #fff,-0.03em 0 #fff,0.05em 0 #fff,-0.05em 0 #fff,0.09em 0 #fff,-0.075em 0 #fff;
 }
 
-section {
-  padding: 8px;
-  width: 90%;
-  max-width: 720px;
+.collection {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
+.collection-item-wrapper:after {
+	content: '';
+	display: block;
+  padding-top: 66.65%;
+}
+
+.collection-item-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.collection-item-contents {
+  position: absolute;
+  padding: $collection-item-padding;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.collection-item {
+  width: 25%;
+}
+
+@media only screen and (max-width:1700px) {
+  .collection-item {
+    width: 33.333%;
+  }
+}
+
+@media only screen and (max-width:1200px) {
+  .collection-item {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width:625px) {
+  .collection-item {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.collection-item {
+  // TODO: dit dus zelfde variable als nav!
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.collection-item-heading {
+  background-color: $background-color;
+  color: $font-color;
+  display: inline;
+  padding: 10px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.collection-item-link {
+  text-decoration: none;
+}
+
+.collection-item h2 {
+  margin-top: 7px;
+  line-height: inherit;
+  margin-bottom: 0;
+}
+
+.collection-item h3 {
+  margin-top: 10px;
+}
+
+.collection-item h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
+
+.collection-item h3 {
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+/* background Images
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#background-images {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.background-image {
+  // z-index: -1;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 //
 //
