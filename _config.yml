@@ -25,6 +25,7 @@ defaults:
       style:
         invert_colors: false
         transparent_text: true
+        fixed: true
 
   - scope:
       path: ditwas

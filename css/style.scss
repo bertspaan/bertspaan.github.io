@@ -17,7 +17,7 @@ $font-color: white;
 $inverted-background-color: $font-color;
 $inverted-font-color: $background-color;
 
-$page-margin: 35px;
+$page-margin: 25px;
 
 $text-shadow: 2px;
 $collection-item-padding: 10px;
@@ -38,6 +38,8 @@ h1, h2, h3, h4, h5, h6, nav li {
 
 article {
   position: relative;
+  box-sizing: border-box;
+  width: 100%;
   padding: $page-margin;
 }
 
@@ -78,13 +80,6 @@ body.invert-colors a:visited {
   color: $inverted-font-color;
 }
 
-/* Padding
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-body {
-  // padding: $page-margin;
-}
-
 /* Menu
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -97,9 +92,17 @@ nav {
   background-color: $background-color;
 
   // TODO: hier ook gradient!
-  border-bottom-color: $font-color;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
+  /// behalve als niet transp!
+  // border-bottom-color: $font-color;
+  // border-bottom-style: solid;
+  // border-bottom-width: 2px;
+
+  background-image: linear-gradient(to top,#000 0%,#000 49%,#fff 50%,#fff 100%);
+  background-size: 3px 3px;
+  background-repeat: repeat-x;
+  background-position: 0 97.5%;
+
+  padding-bottom: 5px;
   // margin: $page-margin $page-margin 0;
   // position: relative;
   // z-index: 100;
@@ -131,7 +134,7 @@ nav .divider {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .center-of-page {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
@@ -148,26 +151,25 @@ nav .divider {
   -webkit-transform:rotate(180deg);
 }
 
-/* Media queries for margin and font size
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-@media (max-width: 600px) {
-  article {
-    padding: 6vw;
-  }
-
-  nav, nav h1, nav li {
-    font-size: 1.5rem;
-  }
-}
-
 /* Sections
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+.section {
+  position: relative;
+}
+
 section {
+  position: absolute;
   padding: 8px;
   width: 90%;
   max-width: 720px;
+}
+
+section span {
+  line-height: 40px;
+  padding: 8px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 section a  {
@@ -215,25 +217,6 @@ section a  {
 
 .collection-item {
   width: 25%;
-}
-
-@media only screen and (max-width:1700px) {
-  .collection-item {
-    width: 33.333%;
-  }
-}
-
-@media only screen and (max-width:1200px) {
-  .collection-item {
-    width: 50%;
-  }
-}
-
-@media only screen and (max-width:625px) {
-  .collection-item {
-    width: 100%;
-    max-width: 100%;
-  }
 }
 
 .collection-item {
@@ -286,66 +269,121 @@ section a  {
 }
 
 .background-image {
-  // z-index: -1;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
+  position: absolute;
+  width: 100%;
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-//
-//
-//
-// .contain {
-//   position: relative;
-// }
-//
-// .block {
-//   display: block;
-// }
-//
-// .clearfix {
-//   display: block;
-// }
-//
-// .clearfix:after {
-//   content: '';
-//   display: block;
-//   height: 0;
-//   clear: both;
-//   visibility: hidden;
-// }
-//
-//
-//
-//
-//
-//
-//
-//
+/* Media queries for margin and font size
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-//
-// body.invert-colors nav {
-//   background-color: $inverted-background-color;
-// }
-//
-// body.transparent-text nav {
-//   background-color: transparent;
-//   text-shadow: $text-shadow $text-shadow $background-color;
-// }
-//
-// body.transparent-text.invert-colors nav {
-//   text-shadow: $text-shadow $text-shadow $inverted-background-color;
-// }
-//
-//
-//
-// body.invert-colors nav {
-//   border-bottom-color: $inverted-font-color;
-// }
+@media only screen and (max-width:1700px) {
+  .collection-item {
+    width: 33.333%;
+  }
+}
+
+@media (max-width: 1200px) {
+  nav {
+    // margin-bottom: 10px;
+  }
+
+  article {
+    padding: 2vw;
+  }
+
+  .collection-item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 625px) {
+  body {
+    font-size: 1.13em;
+    // TODO: line-height
+  }
+
+  .collection-item h2 {
+    font-size: 1.13em;
+  }
+
+  .collection-item h3 {
+    font-size: 0.7em;
+  }
+
+  nav {
+    margin-bottom: 0;
+  }
+
+  article {
+    padding: 2vw;
+  }
+
+  nav, nav h1, nav li {
+    font-size: 1.5rem;
+  }
+
+  .collection-item {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Body classes for other elements
+ –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body.contain .background-size {
+  background-size: contain;
+}
+
+body.fixed article {
+  position: fixed;
+}
+
+
+
+
+
+body.invert-colors nav {
+  background-color: $inverted-background-color;
+}
+
+body.transparent-text nav {
+  background-color: transparent;
+  text-shadow: $text-shadow $text-shadow $background-color;
+}
+
+body.transparent-text.invert-colors nav {
+  text-shadow: $text-shadow $text-shadow $inverted-background-color;
+}
+
+body.invert-colors nav {
+  border-bottom-color: $inverted-font-color;
+}
+
+body.invert-colors #sections section span {
+  background-color: $inverted-background-color;
+}
+
+body.transparent-text #sections section span {
+  background-color: transparent;
+  text-shadow: $text-shadow $text-shadow $background-color;
+}
+
+body.transparent-text.invert-colors #sections section span {
+  text-shadow: $text-shadow $text-shadow $inverted-background-color;
+}
+
+
+
+
+
+
+
+
 //
 
 //
