@@ -1,28 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
   <head>
     {% if page.title %}
     <title>{{ page.title | downcase }} | bertspaan.nl</title>
     {% else %}
     <title>bertspaan.nl</title>
     {% endif %}
-    <meta charset="utf-8">
-    <meta name="viewport"content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/style.css" media="all" />
-    <link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon.png">
-    <script src="{{ site.baseurl }}/js/d3.v3.min.js"></script>
-    <script src="{{ site.baseurl }}/js/functions.js"></script>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta name='mobile-web-app-capable' content='yes'>
+    <meta property='og:title' content='bertspaan.nl' />
+    <meta property='og:url' content='http://bertspaan.nl/' />
+    <meta property='og:image' content='http://bertspaan.nl/images/bert.jpg' />
+    <link rel='stylesheet' type='text/css' href='{{site.baseurl}}/css/style.css' media='all' />
+    <link rel='icon' type='image/png' href='{{ site.baseurl }}/images/favicon.png'>
+    <script src='{{ site.baseurl }}/js/d3.v3.min.js'></script>
+    <script src='{{ site.baseurl }}/js/functions.js'></script>
   </head>
   <body>
     <div id='background-images'>
     </div>
     <article>
       <nav>
-        <h1><a href="{{ site.baseurl }}/">bert spaan</a></h1>
-        {% assign url = page.url | replace_first:'/','' | split:"/" | first %}
+        <h1><a href='{{ site.baseurl }}/'>bert spaan</a></h1>
+        {% assign url = page.url | replace_first:'/','' | split:'/' | first %}
         {% if url == 'index.html' %}
         {% comment %} for jekyll 3, use `if page.url == '/'` {% endcomment %}
-          <span class="divider">:</span>
+          <span class='divider'>:</span>
           <ul>
             {% for item in site.data.menu %}
               <li><a href='{{ site.baseurl }}/{{ item[0] }}'>{{ item[1] }}</a>,</li>
@@ -39,7 +43,7 @@
         {% else %}
           <span class='divider'>/</span>
           <ul>
-            <li><a href="{{ site.baseurl }}/{{ url }}">{{ site.data.menu[url] }}</a></li>
+            <li><a href='{{ site.baseurl }}/{{ url }}'>{{ site.data.menu[url] }}</a></li>
             {% if page.layout != 'collection' %}
             <li>/ {{ page.title | downcase }}</li>
             {% endif %}

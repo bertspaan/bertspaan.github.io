@@ -84,7 +84,7 @@ body.invert-colors a:visited {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 nav {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   margin-left: 10px;
   margin-right: 10px;
@@ -166,7 +166,8 @@ section {
 }
 
 section span {
-  padding: 8px;
+  padding: 4px 8px;
+  line-height: 1.7em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -182,7 +183,7 @@ section a  {
 }
 
 .scroll-for-more {
-  opacity: 0.7;
+
   font-size: 60%;
 }
 
@@ -279,6 +280,14 @@ section a  {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.background-image video {
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto; height: auto;
 }
 
 /* Media queries for margin and font size
@@ -546,10 +555,3 @@ body.transparent-text.invert-colors #sections section span {
 //   background-size: contain;
 // }
 //
-// video.section-background {
-//   right: 0;
-//   bottom: 0;
-//   min-width: 100%;
-//   min-height: 100%;
-//   width: auto; height: auto;
-// }

@@ -4,6 +4,8 @@
  * ==========================================================================
  */
 
+ var baseUrl = 'http://bertspaan.nl';
+
 function createCollection(collection, url, config) {
   getCollection(collection, function(items) {
     var elements = d3.select('.collection')
@@ -48,6 +50,8 @@ function createItem(collection, url, config) {
 
     var sections = d3.selectAll('#sections section');
 
+    setMeta(url, config, item);
+
     stack(sections, item.background_images || [], function(url, containerSize) {
       return getImageUrl(url, config, item, false, containerSize);
     });
@@ -64,6 +68,25 @@ function getCollection(collection, callback) {
       return new Date(dateFromItem(b)) - new Date(dateFromItem(a));
     }));
   });
+}
+
+function setMeta(url, config, item) {
+  var imageUrl = getImageUrl('1.jpg', config, item, false, [1200, 627]);
+  if (!imageUrl.startsWith('http')) {
+    imageUrl = baseUrl + imageUrl;
+  }
+
+  var title = item.title;
+  var fullUrl = baseUrl + item.url;
+
+  d3.select('meta[property=\'og:title\']')
+    .attr('content', title);
+
+  d3.select('meta[property=\'og:url\']')
+    .attr('content', fullUrl);
+
+  d3.select('meta[property=\'og:image\']')
+    .attr('content', imageUrl);
 }
 
 var prevItem;

@@ -7,13 +7,10 @@
 
 function stack(sections, backgroundImages, getUrl) {
   var body = d3.select('body');
-  var touchy = 'ontouchstart' in document && false;
-  var resize = touchy ? resizeTouchy : resizeNoTouchy;
   var i = NaN;
-  var y = 0;
-  var yt;
   var n = sections.size();
   var scrollRatio = 1 / 6;
+  var backgroundImagesSet = false;
 
   var imageDivs = d3.select('#background-images')
       .selectAll('div').data(sections[0])
@@ -23,16 +20,38 @@ function stack(sections, backgroundImages, getUrl) {
 
   var setBackgroundImages = function() {
     imageDivs.each(function(d, i) {
-      // TODO: if met alles en video
 
-      var devicePixelRatio = window.devicePixelRatio;
-      if (!devicePixelRatio) {
-        devicePixelRatio = 1;
+      // backgroundImages is array containing Jekyll's
+      // front matter, initialized in collection-item layout.
+      if (backgroundImages[i]) {
+
+        // Only do this once
+        backgroundImagesSet = true;
+        var splitted = backgroundImages[i].split('.');
+        var extension = splitted[splitted.length - 1];
+
+        if (extension === 'mp4') {
+          d3.select(this).append('video')
+              .attr('autoplay', true)
+              .attr('loop', true)
+              .attr('poster', getUrl(backgroundImages[i].replace('mp4', 'jpg')))
+              .attr('class', 'section-background')
+            .append('source')
+              .attr('type', 'video/mp4')
+              .attr('src', getUrl(backgroundImages[i]));
+        } else {
+          d3.select(this)
+            .style('background-image', 'url(' + getUrl(backgroundImages[i]) + ')');
+        }
+      } else {
+        var devicePixelRatio = window.devicePixelRatio;
+        if (!devicePixelRatio) {
+          devicePixelRatio = 1;
+        }
+        var containerSize = [window.innerWidth * devicePixelRatio, window.innerHeight * devicePixelRatio];
+        d3.select(this)
+          .style('background-image', 'url(' + getUrl((i + 1) + '.jpg', containerSize) + ')');
       }
-      var containerSize = [window.innerWidth * devicePixelRatio, window.innerHeight * devicePixelRatio];
-
-      d3.select(this)
-        .style('background-image', 'url(' + getUrl((i + 1) + '.jpg', containerSize) + ')');
     });
   };
 
@@ -41,43 +60,15 @@ function stack(sections, backgroundImages, getUrl) {
   sections
     .style('display', 'none')
     .style('opacity', 0)
-
-  sections.each(function(d, i) {
-    // TODO: sections.each MAAR EEN keer dus
-
-    if (i < n - 1) {
-      d3.select(this)//.select('span')
-        .append('div')
-          .attr('class', 'scroll-for-more')
-        .append('span')
-          .html('Scroll down for more…');
-    }
-
-    // backgroundImages is array containing Jekyll's
-    // front matter, initialized in collection-item layout.
-    if (backgroundImages[i]) {
-      var splitted = backgroundImages[i].split('.');
-      var extension = splitted[splitted.length - 1];
-
-      if (extension === 'mp4') {
-        // TODO: video!
-        // d3.select(this).append('video')
-        //     .attr('autoplay', true)
-        //     .attr('loop', true)
-        //     .attr('poster', backgroundImages[i].replace('mp4', 'jpg'))
-        //     .attr('class', 'section-background')
-        //   .append('source')
-        //     .attr('type', 'video/mp4')
-        //     .attr('src', getUrl(backgroundImages[i]));
-      } else {
-        // TODO: setBackgroundImages();
-        imageDivs
-          .style('background-image', 'url(' + getUrl(backgroundImages[i]) + ')');
+    .each(function(d, i) {
+      if (i < n - 1) {
+        d3.select(this)
+          .append('div')
+            .attr('class', 'scroll-for-more')
+          .append('span')
+            .html('Scroll down for more…');
       }
-    } else {
-      setBackgroundImages();
-    }
-  });
+    });
 
   d3.select(window)
     .on('resize', resize)
@@ -93,11 +84,7 @@ function stack(sections, backgroundImages, getUrl) {
   var imageDivCurrent = d3.select(imageDivs[0][0]);
   var imageDivNext = d3.select(imageDivs[0][1]);
 
-  function resizeNoTouchy() {
-    // var heading = d3.select('nav').node();
-    // var top = heading.offsetTop + heading.clientHeight;
-    // d3.selectAll('section').style('top', top + 'px');
-
+  function resize() {
     body.style('height', window.innerHeight * n + 'px');
   }
 
@@ -137,7 +124,8 @@ function stack(sections, backgroundImages, getUrl) {
         imageDivCurrent = imageDivPrevious.interrupt().style('opacity', 0).style('z-index', 2);
         imageDivCurrent.transition().style('opacity', 1);
         imageDivPrevious = d3.select(imageDivs[0][i1 - 1]).interrupt().style('display', 'block').style('opacity', 0).style('z-index', 0);
-      } else { // skip
+      } else {
+        // Initialize
         sectionPrevious = d3.select(sections[0][i1 - 1]).interrupt().style('display', 'none').style('opacity', 0)
         sectionCurrent = d3.select(sections[0][i1]).interrupt().style('display', 'block').style('opacity', 1)
         sectionNext = d3.select(sections[0][i1 + 1]).interrupt().style('display', 'none').style('opacity', 0)
@@ -153,6 +141,7 @@ function stack(sections, backgroundImages, getUrl) {
     }
   }
 
+  setBackgroundImages();
   resize();
   reposition();
 }
