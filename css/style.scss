@@ -166,7 +166,6 @@ section {
 }
 
 section span {
-  line-height: 40px;
   padding: 8px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -180,6 +179,11 @@ section a  {
   background-repeat: repeat-x;
   background-position: 0 97.5%;
   // text-shadow: 0.03em 0 #fff,-0.03em 0 #fff,0.05em 0 #fff,-0.05em 0 #fff,0.09em 0 #fff,-0.075em 0 #fff;
+}
+
+.scroll-for-more {
+  opacity: 0.7;
+  font-size: 60%;
 }
 
 .collection {
@@ -342,10 +346,6 @@ body.contain .background-size {
 body.fixed article {
   position: fixed;
 }
-
-
-
-
 
 body.invert-colors nav {
   background-color: $inverted-background-color;
@@ -515,9 +515,7 @@ body.transparent-text.invert-colors #sections section span {
 //   -webkit-box-decoration-break: clone;
 // }
 //
-// .scroll-for-more {
-//   font-size: 60%;
-// }
+
 //
 // body.invert-colors #sections section span {
 //   background-color: $inverted-background-color;

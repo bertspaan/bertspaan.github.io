@@ -232,6 +232,9 @@ function setClasses(style) {
     .classed('fixed ', style.fixed)
     .classed('invert-colors', style.invert_colors)
     .classed('transparent-text', style.transparent_text);
+
+  d3.select('nav')
+    .classed('lights-out', style.lights_out);
 }
 
 /*
@@ -310,7 +313,6 @@ function toggleMode() {
   localStorage.setItem('backgroundSize', backgroundSize);
   setMode();
 }
-
 
 function setLightsOut() {
   // TODO: apply to body
