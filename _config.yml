@@ -25,6 +25,7 @@ defaults:
       style:
         invert_colors: false
         transparent_text: true
+        fixed: true
 
   - scope:
       path: ditwas
@@ -37,5 +38,6 @@ defaults:
       date_from_url: true
       image_from_url: true
       style:
+        lights_out: true
         invert_colors: false
         transparent_text: true

@@ -1,22 +1,26 @@
+---
+style:
+  fixed: false
+  lights_out: false
+---
 {% include header.html %}
-<div class='collection clearfix'>
-	<div class='clearfix'>
-    {% for item in site[page.collection] %}
-    {% if item.show != false %}
-		<div class='collection-item contain clearfix'>
-			<a class='block contain collection-item-link'>
-				<div class='collection-item-image'></div>
-				<div class='collection-item-overlay pin-top'>
-          <h2><span class='collection-item-title' /></h2>
-          <h3><span class='collection-item-date' /></h3>
-				</div>
-			</a>
-		</div>
-    {% endif %}
-    {% endfor %}
-		<script>
-			createCollection('{{ page.collection }}', '{{ page.url }}', {{ site.data.config | jsonify }});
-		</script>
-	</div>
-</div>
+<ol class='collection'>
+  {% for item in site[page.collection] %}
+  {% if item.show != false %}
+	<li class='collection-item'>
+    <div class='collection-item-wrapper'>
+      <div class='collection-item-contents'>
+  		  <a class='collection-item-link'>
+  			  <h2><span class='collection-item-title collection-item-heading' /></span></h2>
+  		  </a>
+        <h3><span class='collection-item-date collection-item-heading' /></span></h3>
+      </div>
+    </div>
+	</li>
+  {% endif %}
+  {% endfor %}
+	<script>
+		createCollection('{{ page.collection }}', '{{ page.url }}', {{ site.data.config | jsonify }});
+	</script>
+</ol>
 {% include footer.html %}

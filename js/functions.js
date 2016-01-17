@@ -16,8 +16,10 @@ function createCollection(collection, url, config) {
     //   {% capture image_url %}{{ image_url }}{{ site.data.hash[hash_key] }}/{% endcapture %}
     // {% endif %}
 
-    elements.select('.collection-item-image').style('background-image', function(d) {
+    elements.select('.collection-item-wrapper').style('background-image', function(d) {
       return 'url(' + getImageUrl(url, config, d, true) + ')';
+    }).on('click', function(d) {
+      location.href = d.url;
     });
 
     elements.select('.collection-item-link').attr('href', function(d) {
@@ -45,8 +47,9 @@ function createItem(collection, url, config) {
     var item = findItem(items, url);
 
     var sections = d3.selectAll('#sections section');
-    stack(sections, item.background_images || [], function(url) {
-      return getImageUrl(url, config, item, false);
+
+    stack(sections, item.background_images || [], function(url, containerSize) {
+      return getImageUrl(url, config, item, false, containerSize);
     });
 
     readLocalStorage();
@@ -97,9 +100,15 @@ function getImageBaseUrl(url, config, item) {
   return baseUrl;
 }
 
-function getImagePath(url, config, item, index) {
+function getImagePath(url, config, item, index, containerSize) {
   if (item.use_sizes) {
-    var size = config.sizes[2];
+    var size;
+    if (containerSize) {
+      size = getSize(config.sizes, containerSize);
+    } else {
+      size = config.sizes[2];
+    }
+
     if (index) {
       size = config.sizes[0];
     }
@@ -127,10 +136,10 @@ function getImageFilename(url, config, item, index) {
   }
 }
 
-function getImageUrl(url, config, item, index) {
+function getImageUrl(url, config, item, index, containerSize) {
   var parts = {
     baseUrl: getImageBaseUrl(url, config, item),
-    path: getImagePath(url, config, item, index),
+    path: getImagePath(url, config, item, index, containerSize),
     filename: getImageFilename(url, config, item, index)
   };
 
@@ -142,6 +151,32 @@ function splitUrl(url) {
   return url.split('/').filter(function(d) {
     return d;
   });
+}
+
+/*
+ * ==========================================================================
+ * Size functions
+ * ==========================================================================
+ */
+
+function getSize(sizes, containerSize) {
+  var size = sizes[sizes.length - 1];
+
+  var maxResize = 1.1;
+
+  var cW = containerSize[0];
+  var cH = containerSize[1];
+  for (var i = 0; i < sizes.length; i++) {
+    var sW = sizes[i][0];
+    var sH = sizes[i][1];
+
+    if (sW * maxResize >= cW && sH * maxResize >= cH) {
+      size = sizes[i];
+      break;
+    }
+  }
+
+  return size;
 }
 
 /*
@@ -194,8 +229,12 @@ function dateFromUrl(url) {
 
 function setClasses(style) {
   d3.select('body')
+    .classed('fixed ', style.fixed)
     .classed('invert-colors', style.invert_colors)
     .classed('transparent-text', style.transparent_text);
+
+  d3.select('nav')
+    .classed('lights-out', style.lights_out);
 }
 
 /*
@@ -275,7 +314,6 @@ function toggleMode() {
   setMode();
 }
 
-
 function setLightsOut() {
   // TODO: apply to body
   var elements = document.getElementsByClassName('lights-out');
@@ -310,12 +348,6 @@ function esc() {
     location.href = newHref;
   }
 }
-//
-// window.onresize = function(event) {
-//   if (modesBackgroundSize[modeBackgroundSizeIndex] === 'contain') {
-//     // TODO: get largest possible from sizes
-//   }
-// };
 
 
 
