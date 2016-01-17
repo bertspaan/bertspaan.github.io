@@ -79,13 +79,17 @@ function setMeta(url, config, item) {
   var title = item.title;
   var fullUrl = baseUrl + item.url;
 
-  d3.select('meta[property=\'og:title\']')
+  var head = d3.select('head');
+  head.append('meta')
+    .attr('property', 'og:title')
     .attr('content', title);
 
-  d3.select('meta[property=\'og:url\']')
+  head.append('meta')
+    .attr('property', 'og:url')
     .attr('content', fullUrl);
 
-  d3.select('meta[property=\'og:image\']')
+  head.append('meta')
+    .attr('property', 'og:image')
     .attr('content', imageUrl);
 }
 
