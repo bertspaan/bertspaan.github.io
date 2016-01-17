@@ -1,0 +1,25 @@
+{% assign url = page.url | replace_first:'/','' | split:'/' | first %}
+{% assign collection = site.collections[url]  %}
+{% assign paard = true %}
+{
+  "type": "FeatureCollection",
+  "features": [
+  	{% for item in collection.docs %}
+    {% if item.coordinates %}
+    {% if paard == false %},{% endif %}
+  	{
+      "type": "Feature",
+      "properties": {
+        "title": "{{ item.title }}",
+        "url": "{{ item.url }}"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": {{ item.coordinates | jsonify }}
+      }
+    }
+    {% assign paard = false %}
+    {% endif %}
+  	{% endfor %}
+  ]
+}
