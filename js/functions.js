@@ -47,16 +47,21 @@ function createCollection(collection, url, config) {
 function createItem(collection, url, config) {
   getCollection(collection, function(items) {
     var item = findItem(items, url);
+    setItem(url, config, item);
+    setMouseEvents();
+    // TODO: hier ook pas key events!?
 
-    var sections = d3.selectAll('#sections section');
+    readLocalStorage(url, config, item);
+  });
+}
 
-    setMeta(url, config, item);
+function setItem(url, config, item) {
+  var sections = d3.selectAll('#sections section');
 
-    stack(sections, item.background_images || [], function(url, containerSize) {
-      return getImageUrl(url, config, item, false, containerSize);
-    });
+  setMeta(url, config, item);
 
-    readLocalStorage();
+  stack(sections, item.background_images || [], function(url, containerSize) {
+    return getImageUrl(url, config, item, false, containerSize);
   });
 }
 
@@ -271,12 +276,51 @@ function setClasses(style) {
  */
 
 document.onkeydown = function(e) {
-  if (e.which === 39 || e.which === 34) next();
-  if (e.which === 37 || e.which === 33) prev();
+  if (e.which === 39 || e.which === 34) prev();
+  if (e.which === 37 || e.which === 33) next();
   if (e.which === 27) esc();
   if (e.which === 77) toggleMode();
   if (e.which === 76) toggleLightsOut();
 };
+
+/*
+ * ==========================================================================
+ * Mouse & touch events
+ * ==========================================================================
+ */
+
+function setMouseEvents() {
+  var backgroundImages = document.getElementById('background-images');
+  var left = backgroundImages.getBoundingClientRect().left;
+  var width = backgroundImages.clientWidth;
+  var center = (width - left) / 2;
+  backgroundImages.addEventListener('mouseup', function(e) {
+
+    var elementX = e.pageX - left;
+    var percentage = elementX / width;
+
+    if (percentage > 0.5) {
+      prev();
+    } else {
+      next();
+    }
+  });
+
+  var startX;
+  backgroundImages.addEventListener('touchstart', function(e) {
+    startX = event.changedTouches[0].pageX;
+  });
+
+  backgroundImages.addEventListener('touchend', function(e) {
+    var endX = event.changedTouches[event.changedTouches.length - 1].pageX;
+
+    if (startX < center && endX > center) {
+      next();
+    } else if (startX > center && endX < center) {
+      prev();
+    }
+  });
+}
 
 /*
  * ==========================================================================
@@ -321,9 +365,6 @@ function next() {
     location.href = nextItem.url;
   }
 }
-
-
-
 
 // TODO: only allow on photos/ditwas
 function setMode() {

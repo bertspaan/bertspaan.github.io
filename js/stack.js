@@ -55,8 +55,6 @@ function stack(sections, backgroundImages, getUrl) {
     });
   };
 
-  window.onresize = setBackgroundImages;
-
   sections
     .style('display', 'none')
     .style('opacity', 0)
@@ -86,6 +84,7 @@ function stack(sections, backgroundImages, getUrl) {
 
   function resize() {
     body.style('height', window.innerHeight * n + 'px');
+    setBackgroundImages();
   }
 
   function getCurrentSection() {
