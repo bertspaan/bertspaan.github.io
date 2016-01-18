@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:georss="http://www.georss.org/georss">
+  <channel>
+    <title>{{ site.name | xml_escape }} - {{ page.title | xml_escape }}</title>
+    <description>{{ page.title | xml_escape }}</description>
+    <link>{{ site.url }}{{ page.url }}</link>
+    {% assign url = page.url | replace_first:'/','' | split:'/' | first %}
+    {% assign collection = site.collections[url]  %}
+    {% for item in collection.docs %}
+      <item>
+        <title>{{ item.title | xml_escape }}</title>
+        <description>Dit was {{ item.content | xml_escape }}</description>
+        {% if item.coordinates %}
+        <georss:point>{{ item.coordinates[1] }} {{ item.coordinates[0] }}</georss:point>
+        {% endif %}
+        <link>{{ site.url }}{{ item.url }}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ item.url }}</guid>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>

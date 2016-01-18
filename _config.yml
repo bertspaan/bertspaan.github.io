@@ -3,6 +3,9 @@ exclude:
   - CNAME
   - README.md
 
+url: http://bertspaan.nl
+name: bertspaan.nl
+
 collections:
   projects:
     output: true
