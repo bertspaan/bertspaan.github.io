@@ -90,22 +90,13 @@ nav {
   margin-right: 10px;
 
   background-color: $background-color;
-
-  // TODO: hier ook gradient!
-  /// behalve als niet transp!
-  // border-bottom-color: $font-color;
-  // border-bottom-style: solid;
-  // border-bottom-width: 2px;
-
   background-image: linear-gradient(to top,#000 0%,#000 49%,#fff 50%,#fff 100%);
   background-size: 3px 3px;
   background-repeat: repeat-x;
   background-position: 0 97.5%;
 
-  padding-bottom: 5px;
-  // margin: $page-margin $page-margin 0;
-  // position: relative;
-  // z-index: 100;
+  line-height: 1.2em;
+  padding-bottom: 0.3em;
 }
 
 nav a {
@@ -293,17 +284,13 @@ section a  {
 /* Media queries for margin and font size
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-@media only screen and (max-width:1700px) {
+@media (max-width: 1700px) {
   .collection-item {
     width: 33.333%;
   }
 }
 
 @media (max-width: 1200px) {
-  nav {
-    // margin-bottom: 10px;
-  }
-
   article {
     padding: 2vw;
   }
@@ -314,6 +301,13 @@ section a  {
 }
 
 @media (max-width: 575px) {
+  .collection-item {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 800px), (max-height: 400px) {
   body {
     font-size: 1.13em;
     // TODO: line-height
@@ -337,11 +331,6 @@ section a  {
 
   nav, nav h1, nav li {
     font-size: 1.5rem;
-  }
-
-  .collection-item {
-    width: 100%;
-    max-width: 100%;
   }
 }
 
@@ -385,173 +374,3 @@ body.transparent-text #sections section span {
 body.transparent-text.invert-colors #sections section span {
   text-shadow: $text-shadow $text-shadow $inverted-background-color;
 }
-
-
-
-
-
-
-
-
-//
-
-//
-// /* Collections (projects, things)
-// –––––––––––––––––––––––––––––––––––––––––––––––––– */
-//
-// nav.fixed {
-//   position: fixed;
-//   width: calc(100% - #{$page-margin * 2});
-// }
-//
-// .collection {
-//     //  border-bottom: $collection-item-padding;
-//   max-width: 1800px;
-//   margin: 0 ($page-margin - $collection-item-padding);
-// }
-//
-// .collection-item {
-//   padding: $collection-item-padding;
-//   float: left;
-//   width: 25.0000%;
-// }
-//
-// .collection-item, .collection-item:after, .collection-item:before {
-//   box-sizing: border-box;
-// }
-//
-// .collection-item-overlay {
-//   padding: $collection-item-padding;
-// }
-//
-// .collection-item-overlay h2 span,
-// .collection-item-overlay h3 span {
-//   background-color: $background-color;
-// }
-//
-// .pin-top {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   left: 0;
-// }
-//
-// .collection-item-image {
-//   height: 0;
-//   padding-bottom: 100%;
-//   background-size: cover;
-//   background-position: 50%;
-// }
-//
-// @media only screen and (max-width:640px) {
-//   .collection-item {
-//     width: 100%;
-//     max-width: 100%;
-//   }
-// }
-//
-// @media only screen and (max-width:1200px) {
-//   .collection-item {
-//     width: 33.3333%;
-//   }
-// }
-//
-// @media only screen and (max-width:900px) {
-//   .collection-item {
-//     width: 50%;
-//   }
-// }
-//
-// @media only screen and (max-width:640px) {
-//   .collection-item {
-//     width: 100%;
-//   }
-//
-//   .collection-item-image {
-//     padding-bottom: 50%;
-//   }
-// }
-//
-// .collection-item h2 span,
-// .collection-item h3 span {
-//   padding: 10px;
-//   -webkit-box-decoration-break: clone;
-//   box-decoration-break: clone;
-// }
-//
-// .collection-item h2 {
-//   margin-top: 7px;
-//   line-height: inherit;
-//   margin-bottom: 0;
-// }
-//
-// .collection-item h3 {
-//   margin-top: 10px;
-// }
-//
-// .collection-item h2 {
-//   font-size: 1.5rem;
-//   letter-spacing: 0;
-// }
-//
-// .collection-item h3 {
-//   font-size: 1rem;
-//   letter-spacing: 0;
-// }
-//
-// /* Single collection item (full screen image + text)
-// –––––––––––––––––––––––––––––––––––––––––––––––––– */
-//
-// #sections section {
-//   // top will be overriden by D3 later
-//   top: 86px;
-//   box-sizing: border-box;
-//   margin: $page-margin;
-//   width: 90%;
-//   max-width: $sections-width;
-//   z-index: 0;
-//   position: fixed;
-// }
-//
-// #sections section span {
-//   display: inline;
-//   background-color: $background-color;
-//   line-height: 1rem;
-//   line-height: 40px;
-//   padding: 8px;
-//
-//   box-decoration-break: clone;
-//   -webkit-box-decoration-break: clone;
-// }
-//
-
-//
-// body.invert-colors #sections section span {
-//   background-color: $inverted-background-color;
-// }
-//
-// body.transparent-text #sections section span {
-//   background-color: transparent;
-//   text-shadow: $text-shadow $text-shadow $background-color;
-// }
-//
-// body.transparent-text.invert-colors #sections section span {
-//   text-shadow: $text-shadow $text-shadow $inverted-background-color;
-// }
-//
-// .section-background {
-//   z-index: -1;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   background-position: center;
-// }
-//
-// body.contain .section-background {
-//   background-size: contain;
-// }
-//
