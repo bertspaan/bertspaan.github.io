@@ -9,9 +9,14 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width,initial-scale=1'>
     <meta name='mobile-web-app-capable' content='yes'>
-    <link rel='stylesheet' type='text/css' href='{{site.baseurl}}/css/style.css' media='all' />
     <link href='{{ site.baseurl }}/ditwas/feed.xml' type='application/atom+xml' rel='alternate' title='Dit was…' />
     <link rel='icon' type='image/png' href='{{ site.baseurl }}/images/favicon.png'>
+    {% if page.leaflet %}
+    <link rel='stylesheet' href='{{ site.baseurl }}/css/leaflet.css' />
+    <script src='{{ site.baseurl }}/js/leaflet.js'></script>
+    <script src='{{ site.baseurl }}/js/leaflet-hash.js'></script>
+    {% endif %}
+    <link rel='stylesheet' type='text/css' href='{{site.baseurl}}/css/style.css' media='all' />
     <script src='{{ site.baseurl }}/js/d3.v3.min.js'></script>
     <script src='{{ site.baseurl }}/js/functions.js'></script>
   </head>

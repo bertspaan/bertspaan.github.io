@@ -374,3 +374,19 @@ body.transparent-text #sections section span {
 body.transparent-text.invert-colors #sections section span {
   text-shadow: $text-shadow $text-shadow $inverted-background-color;
 }
+
+/* Leaflet Map
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.leaflet-container {
+  background: $background-color;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0px;
+}
+
+.leaflet-popup-content {
+  margin: 4px 4px;
+  line-height: 0;
+}

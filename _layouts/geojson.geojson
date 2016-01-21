@@ -10,8 +10,11 @@
   	{
       "type": "Feature",
       "properties": {
-        "title": "{{ item.title }}",
-        "url": "{{ item.url }}"
+        {% for kv in item %}
+        {% if kv[0] != 'output' and kv[0] != 'path' and kv[0] != 'relative_path' and kv[0] != 'content' and kv[0] != 'layout' and kv[0] != 'coordinates' %}
+          "{{kv[0]}}": {{kv[1] | jsonify}}{% if forloop.rindex0 > 0 %},{% endif %}
+        {% endif %}
+        {% endfor %}
       },
       "geometry": {
         "type": "Point",
