@@ -1,13 +1,23 @@
 {% assign url = page.url | replace_first:'/','' | split:'/' | first %}
-{% assign collection = site.collections[url]  %}
 [
-	{% for item in collection.docs %}
+	{% for item in site[url] %}
 	{
-		{% for kv in item %}
-		{% if kv[0] != 'output' and kv[0] != 'path' and kv[0] != 'relative_path' and kv[0] != 'content' and kv[0] != 'layout' %}
-			"{{kv[0]}}": {{kv[1] | jsonify}}{% if forloop.rindex0 > 0 %},{% endif %}
-		{% endif %}
-		{% endfor %}
+		"url": {{ item.url | jsonify }},
+		"title": {{ item.title | jsonify }},
+		"date": {{ item.date | slice: 0, 10 | jsonify }},
+		"style":  {{ item.style | jsonify }},
+
+		"display_date": {{ item.display_date | jsonify }},
+		"coordinates": {{ item.coordinates | jsonify }},
+		"show": {{ item.show | jsonify }},
+		"layout": {{ item.layout | jsonify }},
+		"date_in_title": {{ item.date_in_title | jsonify }},
+		"use_sizes": {{ item.use_sizes | jsonify }},
+		"use_file_server": {{ item.use_file_server | jsonify }},
+		"single": {{ item.single | jsonify }},
+		"date_from_url": {{ item.date_from_url | jsonify }},
+		"image_from_url": {{ item.image_from_url | jsonify }}
+
 	}{% if forloop.rindex0 > 0 %},{% endif %}
 	{% endfor %}
 ]
