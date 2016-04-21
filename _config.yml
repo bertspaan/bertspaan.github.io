@@ -22,7 +22,7 @@ defaults:
       layout: default
 
   - scope:
-      path: projects
+      path: '_projects'
     values:
       layout: collection-item
       style:
@@ -31,7 +31,7 @@ defaults:
         fixed: true
 
   - scope:
-      path: ditwas
+      path: '_ditwas'
     values:
       layout: ditwas
       date_in_title: true
