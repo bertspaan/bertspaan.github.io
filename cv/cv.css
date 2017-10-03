@@ -2,7 +2,7 @@ body {
   width: 900px;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
-  line-height: 1.7em;
+  line-height: 1.8em;
 }
 
 strong {
@@ -22,8 +22,6 @@ h1 a {
 h2 {
   width: 100px;
   float: left;
-  font-family: 'Roboto Slab', serif;
-  font-variant: small-caps;
 }
 
 h2, h4, h5, h6 {
