@@ -1,0 +1,34 @@
+---
+layout:
+---
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>portfolio | bertspaan.nl</title>
+    <link rel='stylesheet' type='text/css' href='{{site.baseurl}}/css/portfolio.css' media='all' />
+  </head>
+  <body>
+    {% for project in site.projects reversed %}
+    {% if project.portfolio == true and project.show != false %}
+    <article>
+      <div class="title">
+        <h2>{{ project.title }}</h2>
+        <h5 class="project-date">{{ project.display_date }}</h5>
+      </div>
+      <div class="portfolio-columns">
+        <div class="portfolio-content">
+        {{ project.content }}
+        </div>
+        <div class="portfolio-images">
+        {% for image in project.background_images %}
+          <div>
+            <img src="{{ project.url }}{{ image }}" />
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </article>
+    {% endif %}
+    {% endfor %}
+  </body>
+</html>
