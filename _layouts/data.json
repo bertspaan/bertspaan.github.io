@@ -6,7 +6,7 @@
 		"title": {{ item.title | jsonify }},
 		"date": {{ item.date | slice: 0, 10 | jsonify }},
 		"style":  {{ item.style | jsonify }},
-
+		"background_images":  {{ item.background_images | jsonify }},
 		"display_date": {{ item.display_date | jsonify }},
 		"coordinates": {{ item.coordinates | jsonify }},
 		"show": {{ item.show | jsonify }},
