@@ -1,9 +1,13 @@
 ---
 title: What fruit is it?
 date: 2015-05-01
-display_date: 2015-05
+display_date: May 2015
+show: false
 style:
   invert_colors: false
+background_images:
+  - 1.jpg
+  - 2.jpg
 ---
 
 <section>

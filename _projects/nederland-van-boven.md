@@ -1,7 +1,8 @@
 ---
 title: Nederland van Boven
 date: 2012-04-01
-display_date: 2012-04
+display_date: April 2012
+portfolio: true
 style:
   invert_colors: true
   transparent_text: false
@@ -19,12 +20,12 @@ background_images:
 
 <section>
   <span>
-    Our animation showed all the flights arriving and departing from Schiphol Airport on a single day.
+    Our animation showed all the flights arriving and departing from Schiphol Airport on a single day. The dataset was supplied by the VPRO, we used Python to clean up the data, <a href="http://postgis.net/">PostGIS</a> to calculate all the fligh paths, and Google Earth for some initial explorations.
   </span>
 </section>
 
 <section>
   <span>
-    We used PostGIS to calculate all the fligh paths, and Maya to overlay them on a paper map.
+    We filmed a paper map the Netherlands, and with <a href="https://www.autodesk.com/products/maya/overview">Maya</a> and camera tracking software, we were able to overlay the 3D flight paths on the movie of the paper map.
   </span>
 </section>

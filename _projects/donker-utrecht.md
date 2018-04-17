@@ -1,9 +1,13 @@
 ---
 title: Donker Utrecht
 date: 2015-05-01
-display_date: 2015-05
+display_date: May 2015
 style:
   transparent_text: true
+background_images:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg
 ---
 
 <section>

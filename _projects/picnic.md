@@ -1,10 +1,12 @@
 ---
 title: Amsterdam Open Data
 date: 2012-09-01
-display_date: 2012-09
+display_date: September 2012
 style:
   transparent_text: false
   invert_colors: true
+background_images:
+  - 1.jpg
 ---
 
 <section>

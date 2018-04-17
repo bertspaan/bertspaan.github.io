@@ -1,10 +1,13 @@
 ---
 title: Energy Label Atlas
 date: 2014-01-01
-display_date: 2014-01
+display_date: Januery 2014
 style:
   transparent_text: false
   invert_colors: true
+background_images:
+  - 1.jpg
+  - 2.jpg
 ---
 
 <section>

@@ -1,10 +1,13 @@
 ---
 title: Animated map tutorial
 date: 2015-03-26
-display_date: 2015-03
+display_date: March 2015
 style:
   invert_colors: true
   transparent_text: false
+background_images:
+  - 1.jpg
+  - 2.jpg
 ---
 
 <section>

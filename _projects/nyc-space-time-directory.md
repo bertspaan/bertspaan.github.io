@@ -2,6 +2,9 @@
 title: The NYC Space/Time Directory
 date: 2017-10-15
 display_date: 2015–2017
+style:
+  invert_colors: true
+  transparent_text: false
 portfolio: true
 background_images:
   - 1.jpg

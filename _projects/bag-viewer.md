@@ -1,10 +1,13 @@
 ---
 title: BAG viewer
 date: 2010-03-01
-display_date: 2010-03
+display_date: March 2010
 style:
   transparent_text: false
   invert_colors: true
+background_images:
+  - 1.jpg
+
 ---
 
 <section>

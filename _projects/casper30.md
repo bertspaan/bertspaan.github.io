@@ -1,9 +1,11 @@
 ---
 title: Casper 30
 date: 2013-11-01
-display_date: 2013-11
+display_date: November 2013
 style:
   invert_colors: true
+background_images:
+  - 1.jpg
 ---
 
 <section>

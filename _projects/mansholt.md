@@ -1,10 +1,14 @@
 ---
 title: Mansholt, Landscape in Perspective
 date: 2014-01-01
-display_date: 2014-01
+display_date: Januery 2014
 style:
   invert_colors: true
   transparent_text: false
+background_images:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg
 ---
 
 <section>
@@ -15,7 +19,7 @@ style:
 
 <section>
   <span>
-    This exhibition featured an interactive map, showing the <a href="https://data.overheid.nl/data/dataset/brp-gewaspercelen">BRP Gewaspercelen</a>, an open data set containing the location and usage of argricultural land in the Netherlands. This map is still <a href="http://code.waag.org/mansholt">available online</a>.
+    This exhibition featured an interactive map which visualized an <a href="https://data.overheid.nl/data/dataset/basisregistratie-gewaspercelen-brp">open data set</a> containing the location and usage of argricultural land in the Netherlands. This interactive map is still <a href="http://code.waag.org/mansholt">available online</a>.
   </span>
 </section>
 

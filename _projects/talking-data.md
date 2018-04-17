@@ -1,7 +1,11 @@
 ---
 title: Talking Data
 date: 2013-09-01
-display_date: 2013-09
+display_date: September 2013
+background_images:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg
 ---
 <section>
   <span>
