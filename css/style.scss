@@ -96,7 +96,7 @@ nav {
   background-position: 0 97.5%;
 
   line-height: 1.2em;
-  padding-bottom: 0.3em;
+  // padding: 0.3em 0;
 }
 
 nav a {
@@ -186,8 +186,8 @@ section a  {
 }
 
 .collection-item-wrapper:after {
-	content: '';
-	display: block;
+  content: '';
+  display: block;
   padding-top: 66.65%;
 }
 
