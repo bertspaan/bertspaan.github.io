@@ -3,44 +3,11 @@ exclude:
   - CNAME
   - README.md
 
-url: http://bertspaan.nl
+url: https://bertspaan.nl
 name: bertspaan.nl
-
-collections:
-  projects:
-    output: true
-    permalink: /projects/:name/
-
-  ditwas:
-    output: true
-    permalink: /ditwas/:path/
 
 defaults:
   - scope:
       path: ''
     values:
       layout: default
-
-  - scope:
-      path: '_projects'
-    values:
-      layout: collection-item
-      style:
-        invert_colors: false
-        transparent_text: true
-        fixed: true
-
-  - scope:
-      path: '_ditwas'
-    values:
-      layout: ditwas
-      date_in_title: true
-      use_sizes: true
-      use_file_server: true
-      single: true
-      date_from_url: true
-      image_from_url: true
-      style:
-        lights_out: true
-        invert_colors: false
-        transparent_text: true

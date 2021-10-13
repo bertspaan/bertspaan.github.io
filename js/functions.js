@@ -259,7 +259,7 @@ function dateFromUrl (url) {
  * ==========================================================================
  */
 
-function setClasses (style) {
+function setClasses (style) {  
   d3.select('body')
     .classed('fixed ', style.fixed)
     .classed('invert-colors', style.invert_colors)
