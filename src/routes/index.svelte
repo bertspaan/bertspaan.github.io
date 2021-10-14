@@ -57,6 +57,12 @@ main {
 	margin-top: -132px;
 }
 
+@media screen and ( max-height: 480px ) {
+  main {
+    margin-top: 0;
+  }
+}
+
 .logo {
 	padding: 1em;
 	display: flex;
