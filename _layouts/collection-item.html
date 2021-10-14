@@ -1,9 +1,0 @@
-{% include header.html %}
-<div id='sections'>
-  {{content}}
-</div>
-<script src='{{ site.baseurl }}/js/stack.js'></script>
-<script>
-  createItem('{{ page.collection }}', '{{ page.url }}', {{ site.data.config | jsonify }});
-</script>
-{% include footer.html %}

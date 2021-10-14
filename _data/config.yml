@@ -1,6 +1,0 @@
-file_server: https://s3-eu-west-1.amazonaws.com/s3.bertspaan.nl/
-sizes:
-  - [ 535,  357]
-  - [1280,  800]
-  - [1920, 1200]
-  - [2560, 1600]
