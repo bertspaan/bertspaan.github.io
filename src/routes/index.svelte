@@ -46,7 +46,7 @@
 
 	<p>
 		If you’d like to get in touch,
-		you can send me an <a href="mailto:hello@bertspaan.nl">email</a> or a message on <a href="https://twitter.com/bertspaan">Twitter</a>.
+		you can send me an <a href="mailto:hello@bertspaan.nl">email</a> or a message on <a href="https://twitter.com/bertspaan">Twitter</a> or <a href="https://bsky.app/profile/bertspaan.nl">Bluesky</a>.
 	</p>
 </main>
 
