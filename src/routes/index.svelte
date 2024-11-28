@@ -40,8 +40,8 @@
 	</p>
 
 	<p>
-	I’m currently building <a href="https://allmaps.org">Allmaps</a>,
-	open source tools for georeferencing, warping and exploring IIIF maps.
+	I’m currently working on <a href="https://allmaps.org">Allmaps</a>,
+	an open source platform for curating, georeferencing and exploring IIIF maps.
 	</p>
 
 	<p>
